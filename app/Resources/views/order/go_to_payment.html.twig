@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ dump(order) }}
+    <script language=JavaScript src='https://auth.robokassa.ru/Merchant/PaymentForm/FormMS.js?{{ rk_query }}'></script>
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}

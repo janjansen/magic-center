@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {#{{ dump(category) }}#}
+    {% for p in  category.getProducts %}
+        <a href="/product/{{ p.getId }}">{{ p.getName }}</a><br>
+        <b>{{ p.getCost }}</b> руб <br>
+        <p>{{ p.getDescription }}</p>
+        {% for i in  p.getImages %}
+            <img src="{{ i.getWebPath }}">
+        {% endfor %}
+        {#{{ dump(p) }}#}
+        <hr>
+    {% endfor %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}

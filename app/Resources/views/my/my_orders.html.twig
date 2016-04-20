@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for p in  user.getPurchases%}
+        {{ dump(p) }}
+    {% endfor %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}

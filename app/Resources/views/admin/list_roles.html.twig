@@ -1,0 +1,55 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block breadcrumb %}
+    <li><a href="{{ url('sonata_admin_dashboard') }}">{% trans %}Dashboard{% endtrans %}</a></li>
+    <li class="active">Admin Roles</li>
+{% endblock %}
+
+{% block content %}
+    {% if is_granted('ROLE_ADMIN') %}
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-hover table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Роль</th>
+                        <th>Дочерние роли</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for parent,childs in roles %}
+                        <tr>
+                            <td>
+                                {% if admin.hasRole(parent) %}
+                                <a href="/admin/app/user/{{ admin.getId}}/roles/remove/{{ parent }}">
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                </a>
+                                {% else %}
+                                <a href="/admin/app/user/{{ admin.getId}}/roles/add/{{ parent }}">
+                                    <i class="glyphicon glyphicon-plus"></i>
+                                </a>
+                                {% endif %}
+                            </td>
+                            <td class="{{ admin.hasRole(parent) ? 'success' : 'danger' }}"> {{ parent }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        {% for child in childs %}
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td class="{{ admin.hasRole(parent) ? 'info' : 'danger' }}">{{ child }}</td>
+                                <td>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+{% endblock %}

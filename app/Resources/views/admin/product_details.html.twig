@@ -1,0 +1,105 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block sonata_admin_content %}
+    <section class="content">
+        <div class="sonata-ba-show">
+            <div class=" ">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h4 class="box-title">
+                            Товар
+                        </h4>
+                    </div>
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table">
+                            <tbody>
+                            <tr class="sonata-ba-view-container">
+                                <th>ID</th>
+                                <td>{{ product.id }}
+                                </td>
+                            </tr>
+                            <tr class="sonata-ba-view-container">
+                                <th>Название</th>
+                                <td>{{ product.name }}</td>
+                            </tr>
+                            <tr class="sonata-ba-view-container">
+                                <th>Цена</th>
+                                <td>
+                                    {{ product.cost }}
+                                </td>
+                            </tr>
+                            <tr class="sonata-ba-view-container">
+                                <th>Описание</th>
+                                <td>{{ product.description }}</td>
+                            </tr>
+                            <tr class="sonata-ba-view-container">
+                                <th>Категория</th>
+                                <td>
+                                    {{ product.category }}
+                                </td>
+
+                            </tr>
+                            <tr class="sonata-ba-view-container">
+                                <th></th>
+                                <td>
+                                    <a href="/admin/app/product/{{ product.id }}/edit" class="btn btn-sm btn-default edit_link" title="Edit">
+                                        <i class="fa fa-pencil"></i>
+                                        Редактировать
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="sonata-ba-view-container">
+                                <th>Изображения</th>
+                                <td>
+                                    {% for im in product.images %}
+                                        <div class="sonata-ba-show">
+                                            <div class=" ">
+                                                <div class="box box-primary">
+                                                    <div class="box-header">
+                                                    </div>
+                                                    <div class="box-body table-responsive no-padding">
+                                                        <table class="table">
+                                                            <tbody>
+                                                                <tr class="sonata-ba-view-container">
+                                                                    <th><td><img width="200px" height="200px" src="{{ im.getWebPath }}"></td></th>
+                                                                    <td>
+                                                                        <a href="/admin/app/productimage/{{ im.id }}/edit" class="btn btn-sm btn-default edit_link" title="Edit">
+                                                                            <i class="fa fa-pencil"></i>
+                                                                            Редактировать
+                                                                        </a>
+                                                                        <a href="/admin/app/productimage/{{ im.id }}/delete" class="btn btn-danger btn-sm btn-default edit_link" title="Edit">
+                                                                            <i class="fa fa-remove"></i>
+                                                                            Удалить
+                                                                        </a>
+                                                                    </td>
+
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </td>
+
+                            </tr>
+                            <tr class="sonata-ba-view-container">
+                                <th></th>
+                                <td>
+                                    <a href="/admin/app/productimage/create" class="btn btn-sm btn-success btn-default edit_link" title="Edit">
+                                        <i class="fa fa-plus"></i>
+                                        Добавить изображение
+                                    </a>
+                                </td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

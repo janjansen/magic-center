@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="880a72b7-c44f-467f-8a34-84684a7d561a" name="magic" url="http://ftp.dolgov.guru">
+        <fileTransfer host="ftp.dolgov.guru" port="21" rootFolder="/public_html/rs2/" password="dfdddfd3dfd8dfcbdfcedfdddff2dfdadffadf99dfeddfccdfe2dfef" username="bh59203">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% set success = app.session.flashbag.get('profile_edit_success')  %}
+    {% if success is not empty %}
+        {{ dump(success) }}
+    {% endif %}
+
+    {#{{ dump(app.user) }}#}
+
+    {#<a href="/my/lessons">мои лекции</a><br>#}
+    <a href="/my/orders">мои заказы</a><br>
+    <a href="/my/profile/edit">редактировать профиль</a>
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}

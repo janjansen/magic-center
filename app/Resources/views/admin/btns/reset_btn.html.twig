@@ -1,0 +1,6 @@
+{% if admin.isGranted('PWD_RESET', object) and admin.hasRoute('manage_admin_roles') %}
+    <a href="{{ admin.generateObjectUrl('manage_admin_roles', object) }}" class="btn btn-sm btn-default edit_link">
+        <i class="glyphicon glyphicon-user"></i>
+        Роли
+    </a>
+{% endif %}

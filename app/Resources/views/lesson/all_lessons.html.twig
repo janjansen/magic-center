@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for lesson in  lessons%}
+        <video width="320" height="240" controls>
+            <source src="{{ lesson.getWebPath }}" type="video/mp4">
+        </video>
+        {{ dump(lesson) }}
+    {% endfor %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}

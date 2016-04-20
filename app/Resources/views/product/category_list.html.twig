@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ul>
+        {% for c in  categories %}
+            <li>
+                <a href="/category/{{ c.getId }}">{{ c.getName }}</a><br>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}

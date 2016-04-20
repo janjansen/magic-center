@@ -1,0 +1,131 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block sonata_admin_content %}
+    <section class="content">
+        <div class="sonata-ba-show">
+            <div class=" ">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h4 class="box-title">
+                            Заказ
+                        </h4>
+                    </div>
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table">
+                            <tbody>
+                                <tr class="sonata-ba-view-container">
+                                    <th>ID заказа</th>
+                                    <td>{{ order.id }}</td>
+                                </tr>
+                                <tr class="sonata-ba-view-container">
+                                    <th>Клиент</th>
+                                    <td>{{ order.user }}
+                                        {% if order.user %}
+                                            <a href="/admin/app/user/{{ order.user.id }}/show" class="btn btn-sm edit_link" title="Edit">
+                                                <i class="fa fa-align-left"></i>
+                                                Показать
+                                            </a>
+                                        {%  endif %}
+                                    </td>
+                                </tr>
+                                <tr class="sonata-ba-view-container">
+                                    <th>Телефон</th>
+                                    <td>
+                                        {{ order.phone }}
+                                    </td>
+                                </tr>
+                                <tr class="sonata-ba-view-container">
+                                    <th>Статус</th>
+                                    <td>
+                                        {{ order.status }}
+                                    </td>
+                                </tr>
+                                <tr class="sonata-ba-view-container">
+                                    <th>Адрес</th>
+                                    <td>
+                                        {{ order.address }}
+                                    </td>
+                                </tr>
+                                <tr class="sonata-ba-view-container">
+                                    <th>Дата доставки</th>
+                                    <td>
+                                        {% if order.deliveryAt %}
+                                            {{ order.deliveryAt.format('Y-m-d H:m') }}
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr class="sonata-ba-view-container">
+                                    <th></th>
+                                    <td>
+                                        <a href="/admin/app/purchase/{{ order.id }}/edit" class="btn btn-sm btn-default edit_link" title="Edit">
+                                            <i class="fa fa-pencil"></i>
+                                            Редактировать
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                                <tr class="sonata-ba-view-container">
+                                    <th>Покупки в заказе</th>
+                                    <td>
+                                        {% for pp in order.purchaseProducts %}
+                                            <div class="sonata-ba-show">
+                                                <div class=" ">
+                                                    <div class="box box-primary">
+                                                        <div class="box-header">
+                                                        </div>
+                                                        <div class="box-body table-responsive no-padding">
+                                                            <table class="table">
+                                                                <tbody>
+                                                                <tr class="sonata-ba-view-container">
+                                                                    <th>ID покупки</th>
+                                                                    <td>{{ pp.id }}</td>
+                                                                </tr>
+                                                                <tr class="sonata-ba-view-container">
+                                                                    <th>Товар</th>
+                                                                    <td>
+                                                                        {{ pp.product.name }}
+                                                                        <a href="/admin/app/product/{{ order.user.id }}/details" class="btn btn-sm edit_link" title="Edit">
+                                                                            <i class="fa fa-align-left"></i>
+                                                                            Показать
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="sonata-ba-view-container">
+                                                                    <th>Цена</th>
+                                                                    <td>
+                                                                        {{ pp.cost }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="sonata-ba-view-container">
+                                                                    <th>Статус покупки</th>
+                                                                    <td>
+                                                                        {{ pp.status }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="sonata-ba-view-container">
+                                                                    <th></th>
+                                                                    <td>
+                                                                        <a href="/admin/app/purchaseproduct/{{ pp.id }}/edit" class="btn btn-sm btn-default edit_link" title="Edit">
+                                                                            <i class="fa fa-pencil"></i>
+                                                                            Редактировать
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

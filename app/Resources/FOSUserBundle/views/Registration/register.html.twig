@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form name="fos_user_registration_form" method="post" action="/register/" class="fos_user_registration_register">
+        <div id="fos_user_registration_form">
+            <div>
+                <label for="fos_user_registration_form_email" class="required">Email</label>
+                <input type="email" id="fos_user_registration_form_email" name="fos_user_registration_form[email]" required="required" />
+            </div>
+            <div>
+                <label for="fos_user_registration_form_username" class="required">Username</label>
+                <input type="hidden" id="fos_user_registration_form_username" name="fos_user_registration_form[username]" value="qqq" required="required" maxlength="255" pattern=".{2,}" />
+            </div>
+            <div>
+                <label for="fos_user_registration_form_plainPassword_first" class="required">Password</label>
+                <input type="password" id="fos_user_registration_form_plainPassword_first" name="fos_user_registration_form[plainPassword][first]" required="required" />
+            </div>
+            <div>
+                <label for="fos_user_registration_form_plainPassword_second" class="required">Repeat password</label>
+                <input type="password" id="fos_user_registration_form_plainPassword_second" name="fos_user_registration_form[plainPassword][second]" required="required" />
+            </div>
+            <input type="hidden" id="fos_user_registration_form__token" name="fos_user_registration_form[_token]" value="{{ csrf_token('registration') }}" />
+        </div>
+        <div>
+            <input type="submit" value="Register" />
+        </div>
+    </form>
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}

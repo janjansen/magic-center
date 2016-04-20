@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    Главная страница<br>
+
+    <a href="/login">логин</a><br>
+    <a href="/logout">логаут</a><br>
+    <a href="/register">регистрация</a><br>
+    <a href="/resetting/request">вспомнить пароль</a><br><br>
+
+    <a href="/my/profile">личный кабинет</a><br><br>
+    <a href="/masters">мастера</a><br><br>
+    <a href="/comments">отзывы</a><br><br>
+
+    <a href="/basket">корзина</a><br>
+    <a href="/offer">офферта</a><br>
+    {#<a href="/lessons">все лекции</a><br>#}
+    <a href="/categories">все категории товаров</a><br><br>
+    <a href="/admin">АДМИНКА</a><br>
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}

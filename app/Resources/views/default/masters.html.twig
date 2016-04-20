@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for m in  masters %}
+        <img src="{{ m.webPath }}"><br>
+        {{ m.name }}<br>
+        {{ m.description }}<br>
+        <hr>
+    {% endfor %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}

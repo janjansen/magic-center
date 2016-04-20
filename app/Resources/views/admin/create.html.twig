@@ -1,0 +1,61 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block breadcrumb %}
+    <li><a href="{{ url('sonata_admin_dashboard') }}">{% trans %}Dashboard{% endtrans %}</a></li>
+    <li class="active">Create New Admin</li>
+{% endblock %}
+
+{% block content %}
+    {% if is_granted('ROLE_ADMIN') %}
+    {% if errors is defined %}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="alert alert-danger">
+                    {% for error in errors %}
+                        {{ error.getMessage }}<br>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-horizontal" method="post">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="manager_create[email]" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputUsername" class="col-sm-2 control-label">Username</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputUsername" placeholder="Username" name="manager_create[username]" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="manager_create[plainPassword][first]" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword2" class="col-sm-2 control-label">Confirm</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword2" placeholder="Password confirm" name="manager_create[plainPassword][second]" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button id="_submit" type="submit" class="btn btn-default">Create</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

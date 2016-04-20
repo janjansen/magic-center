@@ -1,0 +1,77 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    app.admin.product:
+        class: AppBundle\Admin\ProductAdmin
+        arguments: [~, AppBundle\Entity\Product, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Товары, label: Товары }
+
+    app.admin.user:
+        class: AppBundle\Admin\UserAdmin
+        arguments: [~, AppBundle\Entity\User, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Администрирование, label: Пользователи }
+
+    app.admin.product_image:
+        class: AppBundle\Admin\ProductImageAdmin
+        arguments: [~, AppBundle\Entity\ProductImage, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Товары, label: Изображения }
+
+    app.admin.purchase:
+        class: AppBundle\Admin\PurchaseAdmin
+        arguments: [~, AppBundle\Entity\Purchase, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Заказы, label: Заказы }
+
+    app.admin.product_category:
+        class: AppBundle\Admin\ProductCategoryAdmin
+        arguments: [~, AppBundle\Entity\ProductCategory, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Товары, label: Категории }
+
+#    app.admin.lesson:
+#        class: AppBundle\Admin\LessonAdmin
+#        arguments: [~, AppBundle\Entity\Lesson, SonataAdminBundle:CRUD]
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, group: Курсы, label: Видео }
+#
+#    app.admin.user_lesson:
+#        class: AppBundle\Admin\UserLessonAdmin
+#        arguments: [~, AppBundle\Entity\UserLesson, SonataAdminBundle:CRUD]
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, group: Курсы, label: Купленные видео }
+
+    app.admin.purchase_product:
+        class: AppBundle\Admin\PurchaseProductAdmin
+        arguments: [~, AppBundle\Entity\PurchaseProduct, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Заказы, label: Покупки }
+
+    app.admin.robokassa_result_log:
+        class: AppBundle\Admin\RobokassaResultLogAdmin
+        arguments: [~, AppBundle\Entity\RobokassaResultLog, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Заказы, label: Лог Робокассы }
+
+    app.admin.news:
+        class: AppBundle\Admin\NewsAdmin
+        arguments: [~, AppBundle\Entity\News, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Контент, label: Новости }
+
+    app.admin.employee:
+        class: AppBundle\Admin\EmployeeAdmin
+        arguments: [~, AppBundle\Entity\Employee, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Контент, label: Сотрудники }
+
+    app.admin.comment:
+        class: AppBundle\Admin\CommentAdmin
+        arguments: [~, AppBundle\Entity\Comment, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Контент, label: Отзывы }

@@ -1,0 +1,6 @@
+{% if admin.isGranted('EDIT_ROLES', object) and admin.hasRoute('pwd_reset') %}
+    <a href="{{ admin.generateObjectUrl('pwd_reset', object) }}" class="btn btn-sm btn-default edit_link">
+        <i class="glyphicon glyphicon-warning-sign"></i>
+        Сбросить пароль
+    </a>
+{% endif %}

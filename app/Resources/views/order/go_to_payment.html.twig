@@ -2,6 +2,15 @@
 
 {% block body %}
     {{ dump(order) }}
+    <form action="https://demomoney.yandex.ru/eshop.xml" method="post">
+        <input name="shopId" value="1234" type="hidden"/>
+        <input name="scid" value="4321" type="hidden"/>
+        <input name="sum" value="{{ order.getTotalAmount }}" type="hidden">
+        <input name="customerNumber" value="abc000" type="hidden"/>
+        <input name="paymentType" value="AC" type="hidden"/>
+        <input name="orderNumber" value="{{ order.getId }}" type="hidden"/>
+        <input type="submit" value="Заплатить"/>
+    </form>
 {% endblock %}
 
 {% block stylesheets %}

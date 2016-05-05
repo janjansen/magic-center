@@ -52,11 +52,11 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: Заказы, label: Покупки }
 
-    app.admin.robokassa_result_log:
-        class: AppBundle\Admin\RobokassaResultLogAdmin
-        arguments: [~, AppBundle\Entity\RobokassaResultLog, SonataAdminBundle:CRUD]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: Заказы, label: Лог Робокассы }
+#    app.admin.payment_log:
+#        class: AppBundle\Admin\PaymentLogAdmin
+#        arguments: [~, AppBundle\Entity\PaymentLog, SonataAdminBundle:CRUD]
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, group: Заказы, label: PaymentLog }
 
     app.admin.news:
         class: AppBundle\Admin\NewsAdmin

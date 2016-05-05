@@ -252,4 +252,14 @@ class Purchase
     {
         return $this->deliveryAt;
     }
+    
+    public function getTotalAmount()
+    {
+        $amount = 0;
+        foreach ($this->getPurchaseProducts() as $pp) {
+            $amount += $pp->getCost();
+        }
+        
+        return $amount;
+    }
 }

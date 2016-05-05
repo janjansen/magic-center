@@ -21,8 +21,6 @@ class Purchase
     const STATUS_DELIVERY_APPOINTED = 'DELIVERY_APPOINTED';
     const STATUS_DELIVERED = 'DELIVERED';
 
-    const ROBOKASSA_TYPE = 'p';
-
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")

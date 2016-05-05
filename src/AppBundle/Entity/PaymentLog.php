@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: roman
- * Date: 4/19/16
- * Time: 3:04 PM
+ * User: ROSomkin
+ * Date: 05.05.2016
+ * Time: 15:27
  */
 
 namespace AppBundle\Entity;
@@ -12,10 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="robokassa_result_log")
+ * @ORM\Table(name="payment_log")
  */
-class RobokassaResultLog
+class PaymentLog
 {
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -24,24 +25,14 @@ class RobokassaResultLog
     protected $id;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text")
      */
-    protected $params;
+    protected $request;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    protected $failComment;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=false)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     protected $createdAt;
-
-    public function __construct()
-    {
-        $this->createdAt = new \DateTime();
-    }
 
     /**
      * Get id
@@ -54,27 +45,27 @@ class RobokassaResultLog
     }
 
     /**
-     * Set params
+     * Set request
      *
-     * @param string $params
+     * @param string $request
      *
-     * @return RobokassaResultLog
+     * @return PaymentLog
      */
-    public function setParams($params)
+    public function setRequest($request)
     {
-        $this->params = $params;
+        $this->request = $request;
 
         return $this;
     }
 
     /**
-     * Get params
+     * Get request
      *
      * @return string
      */
-    public function getParams()
+    public function getRequest()
     {
-        return $this->params;
+        return $this->request;
     }
 
     /**
@@ -82,7 +73,7 @@ class RobokassaResultLog
      *
      * @param \DateTime $createdAt
      *
-     * @return RobokassaResultLog
+     * @return PaymentLog
      */
     public function setCreatedAt($createdAt)
     {

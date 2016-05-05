@@ -54,7 +54,7 @@ class OrderController extends Controller
 
         $order = $this->getDoctrine()->getRepository('AppBundle:Purchase')->find(1);
 
-        return $this->render(':order:go_to_payment.html.twig', ['order' => $order, 'rk_query' => $this->getRobokassaQueryString($order)]);
+        return $this->render(':order:go_to_payment.html.twig', ['order' => $order]);
     }
 
     protected function getOrderData($data)
@@ -140,15 +140,4 @@ class OrderController extends Controller
 
         return $result;
     }
-
-    protected function getRobokassaQueryString(Purchase $p)
-    {
-        $login = $this->getParameter('robokassa_login');
-        $desc = 'test';
-        $sign = md5("{$login}:{$p->getAmount()}:{$p->getId()}:{$this->getParameter('robokassa_pass1')}:shp_type=p");
-        $type = Purchase::ROBOKASSA_TYPE;
-
-        return "MerchantLogin={$login}&OutSum={$p->getAmount()}&InvId={$p->getId()}&InvDesc={$desc}&SignatureValue={$sign}&Culture=ru&shp_type={$type}";
-    }
-
 }

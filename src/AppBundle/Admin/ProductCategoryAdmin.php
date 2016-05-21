@@ -47,8 +47,16 @@ class ProductCategoryAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        $image = $this->getSubject();
+
+        $options = ['required' => false];
+        if ($image && $image->getWebPath()) {
+            $options['help'] = '<img src="'.$image->getWebPath().'" class="admin-preview" />';
+        }
+
         $formMapper
             ->add('name')
+            ->add('file', 'file', $options)
             ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
         ;
     }

@@ -61,6 +61,8 @@ class Product
      */
     protected $isHidden;
 
+    public $basketQuantity = 0;
+
     /**
      * Constructor
      */
@@ -281,4 +283,5 @@ class Product
 
         return false;
     }
+    
 }

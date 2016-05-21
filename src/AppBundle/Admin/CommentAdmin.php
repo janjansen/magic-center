@@ -18,6 +18,7 @@ class CommentAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('person')
+            ->add('email')
             ->add('text')
             ->add('isHidden', 'doctrine_orm_number', [], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
         ;
@@ -31,6 +32,7 @@ class CommentAdmin extends Admin
         $listMapper
             ->add('id')
             ->add('person')
+            ->add('email')
             ->add('text')
             ->add('isHidden', 'boolean')
             ->add('_action', 'actions', array(
@@ -50,6 +52,7 @@ class CommentAdmin extends Admin
     {
         $formMapper
             ->add('person')
+            ->add('email')
             ->add('text')
             ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
         ;
@@ -63,6 +66,7 @@ class CommentAdmin extends Admin
         $showMapper
             ->add('id')
             ->add('person')
+            ->add('email')
             ->add('text')
             ->add('isHidden')
         ;

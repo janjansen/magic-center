@@ -9,13 +9,23 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="product_category")
+ * @ORM\HasLifecycleCallbacks()
  */
 class ProductCategory
 {
+    const SERVER_PATH_TO_IMAGE_FOLDER = '/home/bh59203/public_html/rs2/web/images/categories/';
+    const WEB_PATH_TO_IMAGE_FOLDER = '/images/categories/';
+
+    /**
+     * Unmapped property to handle file uploads
+     */
+    private $file;
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -32,6 +42,11 @@ class ProductCategory
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Product", mappedBy="category")
      */
     protected $products;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $filename;
 
     /**
      * @ORM\Column(type="smallint")
@@ -142,5 +157,107 @@ class ProductCategory
     public function getIsHidden()
     {
         return $this->isHidden;
+    }
+
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+////        if (!is_null($file)) {
+//        $this->setFilename('');
+//
+//        if (null === $this->getFile()) {
+//            return;
+//        }
+
+        $name = uniqid() . '.' . $file->getClientOriginalExtension();
+        $file->move(
+            self::SERVER_PATH_TO_IMAGE_FOLDER,
+            $name
+        );
+
+        $this->filename = $name;
+
+        $this->file = $file;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    public function upload()
+    {
+        return false;
+        if (null === $this->getFile()) {
+            return;
+        }
+
+        $name = uniqid() . '.' . $this->getFile()->getClientOriginalExtension();
+        $this->getFile()->move(
+            self::SERVER_PATH_TO_IMAGE_FOLDER,
+            $name
+        );
+
+        $this->filename = $name;
+
+//        $this->setFile(null);
+    }
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function prePersist()
+    {
+        $this->upload();
+    }
+
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function preUpdate()
+    {
+        $this->upload();
+    }
+
+    public function getWebPath()
+    {
+        if(!$this->getFilename()) {
+            return false;
+        }
+        return static::WEB_PATH_TO_IMAGE_FOLDER . $this->getFilename();
+    }
+
+    /**
+     * Set filename
+     *
+     * @param string $filename
+     *
+     * @return ProductImage
+     */
+    public function setFilename($filename)
+    {
+        $this->filename = $filename;
+
+        return $this;
+    }
+
+    /**
+     * Get filename
+     *
+     * @return string
+     */
+    public function getFilename()
+    {
+        return $this->filename;
     }
 }

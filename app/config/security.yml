@@ -31,5 +31,5 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/my, role: ROLE_USER }
-        - { path: ^/basket, role: ROLE_USER }
+#        - { path: ^/basket, role: ROLE_USER }
         - { path: ^/admin/, role: ROLE_ADMIN }

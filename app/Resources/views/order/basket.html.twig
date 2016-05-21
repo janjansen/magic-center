@@ -1,35 +1,99 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h2>корзина</h2>
-    {% set errors = app.session.flashbag.get('order_error')  %}
-    {% if errors is not empty %}
-        {{ dump(errors) }}
-    {% endif %}
+    {#<h2>корзина</h2>#}
+    {#{% set errors = app.session.flashbag.get('order_error')  %}#}
+    {#{% if errors is not empty %}#}
+        {#{{ dump(errors) }}#}
+    {#{% endif %}#}
 
-    <form method="POST" action="/order/create">
-        {% for p in products %}
-            <input type="text" name="pid[{{ p.getId }}]" value="1">{{ p.name }}<br>
-        {% endfor %}
-        <input type="text" name="order[phone]">тел<br>
-        <textarea name="order[address]"></textarea>адрес<br>
-        <input type="submit">
-    </form>
+    {#<form method="POST" action="/order/create">#}
+        {#{% for p in products %}#}
+            {#<input type="text" name="pid[{{ p.getId }}]" value="1">{{ p.name }}<br>#}
+        {#{% endfor %}#}
+        {#<input type="text" name="order[phone]">тел<br>#}
+        {#<textarea name="order[address]"></textarea>адрес<br>#}
+        {#<input type="submit">#}
+    {#</form>#}
 
     <a href="" id="clearBasket">очстить корзину</a>
+<div class="wrapper">
+    {% include 'parts/header.html.twig' %}
+    <div class="wrap_12">
+        <div class="wrap_content">
+            {% include 'parts/menu.html.twig' %}
+            <div class="main">
+                <div class="container">
+                    <div class="content_head">
+                        <div class="basket_full">Корзина: <span id="basketCounter">1</span></div>
+                    </div>
+                    <div class="content_item content_item3">
+                        <div class="scroll-pane">
+                            <form method="POST" action="/order/create">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="wrap_basket_block">
+                                            <div class="basket_block table_block">
+                                                <div class="table_tr table_tr1">
+                                                    Товар
+                                                </div>
+                                                <div class="table_tr table_tr2">
+                                                    Количество
+                                                </div>
+                                                <div class="table_tr table_tr2">
+                                                    Цена
+                                                </div>
+                                                <div class="table_tr table_tr2">
+                                                    Удалить
+                                                </div>
+                                            </div>
+                                            {% for p in products %}
+                                                <div class="basket_block basket_item table_block">
+                                                    <div class="table_tr table_tr1">
+                                                        <a class="item_basket" href="#">
+                                                            <div class="img_bask"><img src="{{ p.getMainImageWebPath }}" alt=""/></div>
+                                                            <div class="name_item">{{ p.name }}</div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="table_tr table_tr2">
+                                                        <input class="input_count" type="text" data-cost="{{ p.cost }}" name="pid[{{ p.getId }}]" value="{{ p.basketQuantity }}">
+                                                    </div>
+                                                    <div class="table_tr table_tr2">
+                                                        {{ p.getCost }} руб.
+                                                    </div>
+                                                    <div class="table_tr table_tr2">
+                                                        <a class="btn-close deleteFromBasketBtn" data-pid="{{ p.getId }}" href="#"><i></i></a>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                            <div class="total_wrap">
+                                                <div class="total_block">
+                                                    <div class="row">
+                                                        <div class="col-xs-5">
+                                                            <div class="total">Итого</div>
+                                                        </div>
+                                                        <div class="col-xs-7">
+                                                            <div class="total_summ" id="totalAmount"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn-red btn-total">Оформление</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% for p in  category.getProducts %}
+    {% include ':parts:product_modal.html.twig' with p %}
+{% endfor %}
 {% endblock %}
-
-{% block stylesheets %}
-{% endblock %}
-
 {% block javascripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.0/js.cookie.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#clearBasket').on('click', function(e) {
-                Cookies.set('basket',[]);
-                winwdow.location.reload();
-            });
-        });
-    </script>
+    <script src="/js/basket.js"></script>
 {% endblock %}

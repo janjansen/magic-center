@@ -1,15 +1,46 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <ul>
-        {% for c in  categories %}
-            <li>
-                <a href="/category/{{ c.getId }}">{{ c.getName }}</a><br>
-            </li>
-        {% endfor %}
-    </ul>
+<div class="wrapper">
+    {% include 'parts/header.html.twig' %}
+    <div class="wrap_12">
 
-{% endblock %}
+        <div class="wrap_content">
+            {% include 'parts/menu.html.twig' %}
+            <div class="main">
+                <div class="container">
+                    <div class="content_head">
+                        <div class="h2">Магазин</div>
+                        <a href="/basket" class="basket_full">Корзина: <span id="basketCounter">0</span></a>
+                    </div>
+                    <div class="content_item content_item3">
+                        <div class="scroll-pane">
+                            <div class="wrap_shop_block">
+                                <div class="row">
+                                    {% for c in  categories %}
+                                        <div class="col-xs-4" align="middle" ><!-- блок одного товара -->
+
+                                            <a href="/category/{{ c.getId }}" class="item_shop">
+
+                                                <div class="title_block">{{ c.getName }}</div>
+
+                                                <div class="img_shop"><img src="{{ c.getWebPath }}" alt=""/></div>
+
+                                            </a>
+
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- wrap_12-->
+</div>
+    <script src="/js/basket.js"></script>
+    {% endblock %}
 
 {% block stylesheets %}
 {% endblock %}

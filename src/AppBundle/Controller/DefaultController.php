@@ -19,7 +19,8 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+            'news' => $this->getDoctrine()->getRepository('AppBundle:News')->findBy(['isHidden' => 0], ['id' => 'DESC'], 5),
+            'content' => $this->getDoctrine()->getRepository('AppBundle:Content')->findOneBy(['key' => 'FRONT_PAGE']),
         ]);
     }
 
@@ -28,7 +29,8 @@ class DefaultController extends Controller
      */
     public function offerAction(Request $request)
     {
-        return $this->render('default/offer.html.twig');
+        $offer = $this->getDoctrine()->getRepository('AppBundle:Content')->findOneBy(['key' => 'OFFER_PAGE']);
+        return $this->render('default/offer.html.twig', ['offer' => $offer]);
     }
 
     /**
@@ -44,6 +46,19 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/master/{id}")
+     */
+    public function mastersGetByIdAction($id)
+    {
+        $master = $this
+            ->get('doctrine.orm.default_entity_manager')
+            ->getRepository('AppBundle:Employee')
+            ->findOneBy(['isHidden' => 0,'id' => $id]);
+        return $this->render('default/master_view.html.twig', ['master' => $master]);
+    }
+
+
+    /**
      * @Route("/comments")
      */
     public function commentsAction()
@@ -53,6 +68,24 @@ class DefaultController extends Controller
             ->getRepository('AppBundle:Comment')
             ->findBy(['isHidden' => 0], ['id' => 'desc']);
         return $this->render('default/comments.html.twig', ['comments' => $comments]);
+    }
+
+    /**
+     * @Route("/contacts")
+     */
+    public function contactsAction()
+    {
+        $contact = $this->getDoctrine()->getRepository('AppBundle:Content')->findOneBy(['key' => 'CONTACT_PAGE']);
+        return $this->render('default/contacts.html.twig', ['contact' => $contact]);
+    }
+
+    /**
+     * @Route("/appointment")
+     */
+    public function requestAction()
+    {
+        $appointment = $this->getDoctrine()->getRepository('AppBundle:Content')->findOneBy(['key' => 'APPOINTMENT_PAGE']);
+        return $this->render('default/appointment.html.twig', ['appointment' => $appointment]);
     }
 
     /**

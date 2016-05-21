@@ -34,11 +34,11 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: Товары, label: Категории }
 
-#    app.admin.lesson:
-#        class: AppBundle\Admin\LessonAdmin
-#        arguments: [~, AppBundle\Entity\Lesson, SonataAdminBundle:CRUD]
-#        tags:
-#            - { name: sonata.admin, manager_type: orm, group: Курсы, label: Видео }
+    app.admin.lesson:
+        class: AppBundle\Admin\LessonAdmin
+        arguments: [~, AppBundle\Entity\Lesson, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Контент, label: Курсы }
 #
 #    app.admin.user_lesson:
 #        class: AppBundle\Admin\UserLessonAdmin
@@ -51,12 +51,6 @@ services:
         arguments: [~, AppBundle\Entity\PurchaseProduct, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Заказы, label: Покупки }
-
-#    app.admin.payment_log:
-#        class: AppBundle\Admin\PaymentLogAdmin
-#        arguments: [~, AppBundle\Entity\PaymentLog, SonataAdminBundle:CRUD]
-#        tags:
-#            - { name: sonata.admin, manager_type: orm, group: Заказы, label: PaymentLog }
 
     app.admin.news:
         class: AppBundle\Admin\NewsAdmin
@@ -75,3 +69,10 @@ services:
         arguments: [~, AppBundle\Entity\Comment, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Контент, label: Отзывы }
+
+    app.admin.content:
+        class: AppBundle\Admin\ContentAdmin
+        arguments: [~, AppBundle\Entity\Content, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Контент, label: Страницы }
+

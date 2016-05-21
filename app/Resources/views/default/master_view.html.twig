@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="wrapper">
+    {% include 'parts/header.html.twig' %}
+    <div class="wrap_12">
+        <div class="wrap_content">
+            {% include 'parts/menu.html.twig' %}
+            <div class="main">
+                <div class="container">
+
+                    <div class="content_head">
+
+                        <div class="h2">{{ master.name }}</div>
+
+                    </div>
+
+                    <div class="content_item content_item5">
+
+                        <div class="scroll-pane">
+
+
+
+                            <div class="wrap_master_block">
+
+                                <div class="row">
+
+                                    <div class="col-xs-5">
+
+                                        <div class="img_master"><img src="{{ master.getWebPath }}" alt=""></div>
+
+                         {#/               <div class="wrap_kurs">#}
+
+                                            {#<div class="title_kurs">Курсы</div>#}
+
+                                            {#<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,#}
+
+                                                {#sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.#}
+
+                                            {#</p>#}
+
+                                        {#</div>#}
+
+                                    </div>
+
+                                    <div class="col-xs-7">
+
+                                        <div class="wrap_ab_master">
+
+                                            <div class="tilte_ab_master">О мастере</div>
+
+                                            <p>{{ master.description }}</p>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}

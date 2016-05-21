@@ -18,8 +18,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  */
 class Lesson
 {
-    const SERVER_PATH_TO_IMAGE_FOLDER = '/home/roman/www/magic/web/video/lessons/';
-    const WEB_PATH_TO_IMAGE_FOLDER = '/video/lessons/';
+    const SERVER_PATH_TO_IMAGE_FOLDER = '/home/bh59203/public_html/rs2/web/images/lessons/';
+    const WEB_PATH_TO_IMAGE_FOLDER = '/images/lessons/';
 
     /**
      * Unmapped property to handle file uploads
@@ -39,16 +39,14 @@ class Lesson
     protected $filename;
 
     /**
-     * @ORM\Column(type="decimal", precision=8, scale=2)
-     *
-     * @var float
+     * @ORM\Column(type="string")
      */
-    protected $cost;
+    protected $title;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\UserLesson", mappedBy="lesson")
+     * @ORM\Column(type="text")
      */
-    protected $userLessons;
+    protected $description;
 
     /**
      * @ORM\Column(type="smallint")
@@ -96,7 +94,23 @@ class Lesson
      */
     public function setFile(UploadedFile $file = null)
     {
-        $this->file = $file;
+        if (null === $file) {
+            return;
+        }
+
+        $name = md5(uniqid()) . md5(microtime())  . '.' . $file->getClientOriginalExtension();
+
+        $file->move(
+            self::SERVER_PATH_TO_IMAGE_FOLDER,
+            $name
+        );
+
+
+        $this->filename = $name;
+
+//        $this->setFile(null);
+
+//        $this->file = $file;
     }
 
     /**
@@ -111,21 +125,7 @@ class Lesson
 
     public function upload()
     {
-        if (null === $this->getFile()) {
-            return;
-        }
 
-        $name = md5(uniqid()) . md5(microtime())  . '.' . $this->getFile()->getClientOriginalExtension();
-
-        $this->getFile()->move(
-            self::SERVER_PATH_TO_IMAGE_FOLDER,
-            $name
-        );
-
-
-        $this->filename = $name;
-
-        $this->setFile(null);
     }
 
     /**
@@ -189,60 +189,36 @@ class Lesson
     }
 
     /**
-     * Add userLesson
+     * Set description
      *
-     * @param \AppBundle\Entity\UserLesson $userLesson
+     * @param string $description
      *
      * @return Lesson
      */
-    public function addUserLesson(\AppBundle\Entity\UserLesson $userLesson)
+    public function setDescription($description)
     {
-        $this->userLessons[] = $userLesson;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Remove userLesson
-     *
-     * @param \AppBundle\Entity\UserLesson $userLesson
-     */
-    public function removeUserLesson(\AppBundle\Entity\UserLesson $userLesson)
-    {
-        $this->userLessons->removeElement($userLesson);
-    }
-
-    /**
-     * Get userLessons
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUserLessons()
-    {
-        return $this->userLessons;
-    }
-
-    /**
-     * Set cost
-     *
-     * @param string $cost
-     *
-     * @return Lesson
-     */
-    public function setCost($cost)
-    {
-        $this->cost = $cost;
-
-        return $this;
-    }
-
-    /**
-     * Get cost
+     * Get description
      *
      * @return string
      */
-    public function getCost()
+    public function getDescription()
     {
-        return $this->cost;
+        return $this->description;
+    }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
     }
 }

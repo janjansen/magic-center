@@ -18,7 +18,8 @@ class LessonAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('filename')
-            ->add('cost')
+            ->add('title')
+            ->add('description')
             ->add('isHidden', 'doctrine_orm_number', [], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
         ;
     }
@@ -30,8 +31,9 @@ class LessonAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('filename')
-            ->add('cost')
+//            ->add('filename')
+            ->add('title')
+//            ->add('description')
             ->add('isHidden', 'boolean')
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -52,12 +54,13 @@ class LessonAdmin extends Admin
 
         $options = ['required' => false];
         if ($lesson && $lesson->getWebPath()) {
-            $options['help'] = '<video  width="320" height="240" controls><source src="'.$lesson->getWebPath().'" type="video/mp4"></video>';
+            $options['help'] = '<img src="'.$lesson->getWebPath().'" class="admin-preview" />';
         }
 
         $formMapper
             ->add('file', 'file', $options)
-            ->add('cost')
+            ->add('title')
+            ->add('description')
             ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
 
         ;
@@ -70,6 +73,7 @@ class LessonAdmin extends Admin
     {
         $showMapper
             ->add('id')
+            ->add('title')
             ->add('filename')
             ->add('isHidden')
         ;

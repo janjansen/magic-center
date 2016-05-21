@@ -1,12 +1,67 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% for lesson in  lessons%}
-        <video width="320" height="240" controls>
-            <source src="{{ lesson.getWebPath }}" type="video/mp4">
-        </video>
-        {{ dump(lesson) }}
-    {% endfor %}
+
+    <div class="wrapper">
+        {% include 'parts/header.html.twig' %}
+        <div class="wrap_12">
+
+            <div class="wrap_content">
+                {% include 'parts/menu.html.twig' %}
+                <div class="main">
+                    <div class="container">
+                        <div class="content_head">
+                            <div class="h2">Курсы</div>
+                        </div>
+                        <div class="content_item content_item4">
+                            <div class="scroll-pane">
+                                {#<div class="title_block">Диагностика магического потенциала</div>#}
+                                {#<div class="inform_less">#}
+                                    {#<p>Информация</p>#}
+                                    {#<div class="wrap_btn">#}
+                                        {#<a href="#" class="btn-less">заполнить анкету</a>#}
+                                    {#</div>#}
+                                {#</div>#}
+                                <div class="wrap_basket_block">
+                                    {% for l in lessons %}
+                                        <div class="basket_block less_block clearfix">
+                                            <div class="img_less"><img src="{{ l.getWebPath }}" alt=""></div>
+                                            <div class="descript">
+                                                <div class="less_head">{{ l.title }}</div>
+                                                <div class="less_text">
+                                                    {{ l.description }}
+                                                </div>
+                                            </div>
+                                            <div class="wrap_btn">
+
+                                                <a href="#myModal1" class="btn-less btnModal">записаться</a>
+
+                                            </div>
+                                        </div><!--less_block-->
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- wrap_12-->
+    </div>
+    <div class="modal"  id="myModal1" >
+        <div class="wrap_modal wr_modal1">
+
+            <div class="modal1">
+                <div class="modal_body">
+                    <p>{{ content.content }}</p>
+                </div>
+                <div class="wrap_modal_btn clearfix">
+                    <div class="modal_total">
+                        <a class="btn-red btn-modal"  href="/initialisation">заполнить анкету</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block stylesheets %}

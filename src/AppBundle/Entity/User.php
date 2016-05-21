@@ -32,11 +32,6 @@ class User extends BaseUser
     protected $scoreAmount;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\UserLesson", mappedBy="user")
-     */
-    protected $userLessons;
-
-    /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Purchase", mappedBy="user")
      */
     protected $purchases;
@@ -128,40 +123,6 @@ class User extends BaseUser
     public function getScoreAmount()
     {
         return $this->scoreAmount;
-    }
-
-    /**
-     * Add userLesson
-     *
-     * @param \AppBundle\Entity\UserLesson $userLesson
-     *
-     * @return User
-     */
-    public function addUserLesson(\AppBundle\Entity\UserLesson $userLesson)
-    {
-        $this->userLessons[] = $userLesson;
-
-        return $this;
-    }
-
-    /**
-     * Remove userLesson
-     *
-     * @param \AppBundle\Entity\UserLesson $userLesson
-     */
-    public function removeUserLesson(\AppBundle\Entity\UserLesson $userLesson)
-    {
-        $this->userLessons->removeElement($userLesson);
-    }
-
-    /**
-     * Get userLessons
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUserLessons()
-    {
-        return $this->userLessons;
     }
 
     /**

@@ -29,6 +29,11 @@ class Comment
     protected $person;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    protected $email;
+
+    /**
      * @ORM\Column(type="text")
      */
     protected $text;
@@ -70,6 +75,23 @@ class Comment
     public function getPerson()
     {
         return $this->person;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get person
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 
     /**

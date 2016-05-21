@@ -1,0 +1,40 @@
+<div class="modal"  id="mp{{ p.id }}">
+    <div class="wrap_modal wr_modal2 "  style="width: 1000px;">
+        <div class="modal2">
+            <div class="tab_row">
+                <div class="col-tr col-tr1" style="width: 300px">
+                    <div class="item_img">
+                        <img src="{{ p.getMainImageWebPath }}" alt="">
+                    </div>
+
+                    {% if p.getImages|length > 1  %}
+                    <div class="wrap_slick">
+                        <div class="slick">
+                            {% for i in  p.getImages %}
+                                <div class="slick_img">
+                                    <img src="{{ i.getWebPath }}"alt="">
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="col-tr col-tr2" style="width: 700px">
+                    <div >
+                        <h4 style="margin: 5px">{{ p.getName }}</h4>
+                        <p>{{ p.getDescription }}</p>
+                    </div>
+
+
+                    <div class="wrap_modal_btn clearfix">
+                        <div class="modal_total">
+                            <div class="total_modal">{{ p.getCost }} руб.</div>
+                            <a class="btn-red btn-modal buyBtn" data-pid="{{ p.id }}"  href="#">добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

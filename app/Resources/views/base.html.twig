@@ -1,14 +1,160 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js"></script>
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"  content="width=1200">
+    <!-- 	<meta name="viewport" content="width=device-width"> -->
+    <!--  <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/jScrollPane/jquery.jscrollpane.css" type="text/css" media="screen"/>
+    <script type="text/javascript" src="/jScrollPane/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="/jScrollPane/jquery.jscrollpane.min.js"></script>
+    <link rel="stylesheet" href="/fancy/jquery.fancybox.css" type="text/css" media="screen"/>
+    <script type="text/javascript" src="/fancy/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="/js/owl.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/owl.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script type="text/javascript" src="/js/init.js"></script>
+    <script type="text/javascript" src="/js/canvas.js"></script>
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="/oldbrowser/css/jquery.reject.css"/>
+    <script type="text/javascript" src="/oldbrowser/jquery.reject.js"></script>
+    <script type="text/javascript" src="/oldbrowser/old.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.0/js.cookie.js"></script>
+</head>
+
+<body class="body">
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+<!-- <div class="footer_pos_bottom"> -->
+
+<div class="footer">
+
+    <div class="wrap_12">
+        <div class="footer-top">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-xs-6">
+
+                        <div class="soc_title">Мы в социальных сетях</div>
+
+                        <div class="soc_links">
+
+                            <a href="#"><span>В контакте</span><i class="vk"></i></a>
+
+                            <a href="#"><span>instagram</span><i class="ins"></i></a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-xs-6">
+
+                        <div class="a_inform">
+
+                            <div class="soc_title">Информация</div>
+
+                            <a href="/offer">Договор оферта</a>
+
+                            <a href="/contacts">Контакты</a>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div><!--wrap_12-->
+
+
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-xs-12">
+
+                    <div class="copy">© 2016 ЦМП. Все права защищены.</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- </div> -->
+
+</div>
+
+
+
+
+<div class="modal"  id="myModal1" >
+    <div class="wrap_modal wr_modal1">
+
+        <div class="modal1">
+            <div class="modal_body">
+                <p>Для записи на курс...</p>
+            </div>
+            <div class="wrap_modal_btn clearfix">
+                <div class="modal_total">
+                    <a class="btn-red btn-modal"  href="#">заполнить анкету</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{#<div class="modal"  id="myModal2" >#}
+    {#<div class="wrap_modal  wr_modal2">#}
+
+        {#<div class="modal2">#}
+            {#<div class="tab_row">#}
+                {#<div class="col-tr col-tr1">#}
+                    {#<div class="item_img">#}
+                        {#<img src="images/item4.png" alt="">#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="col-tr col-tr2">#}
+
+                    {#<div class="descript">#}
+                        {#<p>Кулон...</p>#}
+                    {#</div>#}
+
+                    {#<div class="wrap_modal_btn clearfix">#}
+                        {#<div class="modal_total">#}
+                            {#<div class="total_modal">руб.  1,450.00</div>#}
+                            {#<a class="btn-red btn-modal" href="#">добавить в корзину</a>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+{#</div>#}
+</body>
+
 </html>

@@ -1,0 +1,51 @@
+[15-Apr-2016 16:17:07 Europe/Moscow] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php:43
+Stack trace:
+#0 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php(43): PDO->__construct('mysql:host=127....', 'root', 'qwerty', Array)
+#1 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOMySql/Driver.php(45): Doctrine\DBAL\Driver\PDOConnection->__construct('mysql:host=127....', 'root', 'qwerty', Array)
+#2 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(360): Doctrine\DBAL\Driver\PDOMySql\Driver->connect(Array, 'root', 'qwerty', Array)
+#3 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(429): Doctrine\DBAL\Connection->connect()
+#4 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(389): Doctrine\DBAL\Con in /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/AbstractMySQLDriver.php on line 103
+[15-Apr-2016 16:21:44 Europe/Moscow] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php:43
+Stack trace:
+#0 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php(43): PDO->__construct('mysql:host=127....', 'root', 'qwerty', Array)
+#1 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOMySql/Driver.php(45): Doctrine\DBAL\Driver\PDOConnection->__construct('mysql:host=127....', 'root', 'qwerty', Array)
+#2 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(360): Doctrine\DBAL\Driver\PDOMySql\Driver->connect(Array, 'root', 'qwerty', Array)
+#3 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(429): Doctrine\DBAL\Connection->connect()
+#4 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(389): Doctrine\DBAL\Con in /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/AbstractMySQLDriver.php on line 103
+[15-Apr-2016 16:26:38 Europe/Moscow] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php:43
+Stack trace:
+#0 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php(43): PDO->__construct('mysql:host=127....', 'root', 'qwerty', Array)
+#1 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOMySql/Driver.php(45): Doctrine\DBAL\Driver\PDOConnection->__construct('mysql:host=127....', 'root', 'qwerty', Array)
+#2 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(360): Doctrine\DBAL\Driver\PDOMySql\Driver->connect(Array, 'root', 'qwerty', Array)
+#3 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(429): Doctrine\DBAL\Connection->connect()
+#4 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(389): Doctrine\DBAL\Con in /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/AbstractMySQLDriver.php on line 103
+[15-Apr-2016 16:31:09 Europe/Moscow] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php:43
+Stack trace:
+#0 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php(43): PDO->__construct('mysql:host=127....', 'root', 'qwerty', Array)
+#1 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOMySql/Driver.php(45): Doctrine\DBAL\Driver\PDOConnection->__construct('mysql:host=127....', 'root', 'qwerty', Array)
+#2 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(360): Doctrine\DBAL\Driver\PDOMySql\Driver->connect(Array, 'root', 'qwerty', Array)
+#3 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(429): Doctrine\DBAL\Connection->connect()
+#4 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(389): Doctrine\DBAL\Con in /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/AbstractMySQLDriver.php on line 103
+[15-Apr-2016 16:31:28 Europe/Moscow] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php:43
+Stack trace:
+#0 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php(43): PDO->__construct('mysql:host=127....', 'root', 'qwerty', Array)
+#1 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOMySql/Driver.php(45): Doctrine\DBAL\Driver\PDOConnection->__construct('mysql:host=127....', 'root', 'qwerty', Array)
+#2 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(360): Doctrine\DBAL\Driver\PDOMySql\Driver->connect(Array, 'root', 'qwerty', Array)
+#3 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(429): Doctrine\DBAL\Connection->connect()
+#4 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(389): Doctrine\DBAL\Con in /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/AbstractMySQLDriver.php on line 103
+[15-Apr-2016 16:31:50 Europe/Moscow] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php:43
+Stack trace:
+#0 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php(43): PDO->__construct('mysql:host=127....', 'root', 'qwerty', Array)
+#1 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOMySql/Driver.php(45): Doctrine\DBAL\Driver\PDOConnection->__construct('mysql:host=127....', 'root', 'qwerty', Array)
+#2 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(360): Doctrine\DBAL\Driver\PDOMySql\Driver->connect(Array, 'root', 'qwerty', Array)
+#3 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(429): Doctrine\DBAL\Connection->connect()
+#4 /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php(389): Doctrine\DBAL\Con in /home/bh59203/public_html/rs2/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/AbstractMySQLDriver.php on line 103
+[19-Apr-2016 14:28:02 Europe/Moscow] PHP Parse error:  syntax error, unexpected 'return' (T_RETURN) in /home/bh59203/public_html/rs2/src/AppBundle/Controller/OrderController.php on line 57
+[19-Apr-2016 14:28:06 Europe/Moscow] PHP Parse error:  syntax error, unexpected 'return' (T_RETURN) in /home/bh59203/public_html/rs2/src/AppBundle/Controller/OrderController.php on line 57
+[19-Apr-2016 15:58:48 Europe/Moscow] PHP Fatal error:  Call to undefined method AppBundle\Entity\RobokassaResultLog::setFailComment() in /home/bh59203/public_html/rs2/src/AppBundle/Controller/RobokassaController.php on line 74
+[20-Apr-2016 15:08:46 Europe/Moscow] PHP Fatal error:  Class 'AppBundle\Admin\NewsAdmin' not found in /home/bh59203/public_html/rs2/var/cache/dev/appDevDebugProjectContainer.php on line 525
+[20-Apr-2016 15:48:10 Europe/Moscow] PHP Parse error:  syntax error, unexpected ')' in /home/bh59203/public_html/rs2/src/AppBundle/Controller/DefaultController.php on line 33
+[20-Apr-2016 16:39:49 Europe/Moscow] PHP Fatal error:  Cannot redeclare AppBundle\Controller\DefaultController::mastersAction() in /home/bh59203/public_html/rs2/src/AppBundle/Controller/DefaultController.php on line 44
+[20-Apr-2016 17:19:52 Europe/Moscow] PHP Fatal error:  Call to undefined method AppBundle\Controller\SecurityController::getSonataTemplateVars() in /home/bh59203/public_html/rs2/src/AppBundle/Controller/SecurityController.php on line 90
+[05-May-2016 16:16:03 Europe/Moscow] PHP Fatal error:  Class 'AppBundle\Admin\PaymentLogAdmin' not found in /home/bh59203/public_html/rs2/var/cache/dev/appDevDebugProjectContainer.php on line 561
+[21-May-2016 15:46:08 Europe/Moscow] PHP Fatal error:  Call to undefined method AppBundle\Entity\ProductCategory::getWebPath() in /home/bh59203/public_html/rs2/src/AppBundle/Admin/ProductCategoryAdmin.php on line 53

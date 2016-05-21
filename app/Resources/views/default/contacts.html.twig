@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<div class="wrapper">
+
+    <!-- <div class="wrap_main"> -->
+
+    {% include 'parts/header.html.twig' %}
+
+    <div class="wrap_12">
+
+
+
+        <div class="wrap_content">
+            {% include 'parts/menu.html.twig' %}
+            <div class="main">
+                <div class="container">
+                    <div class="content_head">
+                        <div class="h2"></div>
+                    </div>
+                    <div class="content_item content_item2">
+                        <div class="scroll-pane">
+                            <div class="wrap_contact_block">
+                                <div class="maps">
+                                    <div class="row">
+                                        <div class="col-xs-5">
+                                            <div class="map"><img src="images/map.jpg" alt=""/></div>
+                                        </div>
+                                        <div class="col-xs-7">
+                                            {{ contact.content | raw }}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="wrap_form">
+
+                                            <div class="title_form">Форма обратной связи</div>
+
+                                            <form class="form">
+
+                                                <input class="input" type="text" maxlength="" name="name" placeholder="Ваше имя" required="">
+
+                                                <input class="input" type="text" maxlength="" name="email" placeholder="E-mail" required="">
+
+                                                <textarea class="textarea" placeholder="Сообщение"></textarea>
+
+                                                <input class="btn-submit" type="submit" value="Отправить">
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--scroll-pane-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- wrap_12-->
+</div>
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}

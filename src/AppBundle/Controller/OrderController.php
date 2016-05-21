@@ -30,10 +30,18 @@ class OrderController extends Controller
     public function showBasketAction(Request $request)
     {
         $productIds = json_decode($request->cookies->get('basket'), true);
-        $products = [];
-        if (!empty($productIds)) {
-            $products = $this->getDoctrine()->getRepository('AppBundle:Product')->findBy(['id' => array_unique($productIds)]);
+        if (empty($productIds)) {
+            return $this->render(':order:basket_empty.html.twig');    
         }
+        $products = $this->getDoctrine()->getRepository('AppBundle:Product')->findBy(['id' => array_unique($productIds)]);
+        foreach ($productIds as $pid) {
+            foreach ($products as $p) {
+                if ($p->getId() == $pid) {
+                    $p->basketQuantity ++;
+                }
+            }
+        }
+        $total = array_reduce($products, function ($t,$i) {$t = $t + $i->basketQuantity * $i->getCost(); return $t;}, 0);
         return $this->render(':order:basket.html.twig', ['products' => $products]);
     }
 
@@ -45,14 +53,14 @@ class OrderController extends Controller
      */
     public function createOrderAction(Request $request)
     {
-//        $products = $this->getProductsToPurchase($request->get('pid'));
-//        $orderData = $this->getOrderData($request->get('order'));
-//        if ($products == false || $orderData == false) {
-//            return new RedirectResponse('/basket');
-//        }
-//        $order = $this->createOrder($orderData, $products);
+        $products = $this->getProductsToPurchase($request->get('pid'));
+        $orderData = $this->getOrderData($request->get('order'));
+        if ($products == false || $orderData == false) {
+            return new RedirectResponse('/basket');
+        }
+        $order = $this->createOrder($orderData, $products);
 
-        $order = $this->getDoctrine()->getRepository('AppBundle:Purchase')->find(1);
+//        $order = $this->getDoctrine()->getRepository('AppBundle:Purchase')->find(1);
 
         return $this->render(':order:go_to_payment.html.twig', ['order' => $order]);
     }

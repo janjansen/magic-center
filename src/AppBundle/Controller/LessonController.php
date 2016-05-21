@@ -16,12 +16,21 @@ class LessonController extends Controller
 {
 
     /**
-     * @Route("/lessons")
+     * @Route("/courses")
      */
     public function allLessonsListAction()
     {
         $lessons = $this->getDoctrine()->getRepository('AppBundle:Lesson')->findBy(['isHidden' => 0]);
-        return $this->render('lesson/all_lessons.html.twig', ['lessons' => $lessons]);
+        $content = $this->getDoctrine()->getRepository('AppBundle:Content')->findOneBy(['key' => 'COURSE_POPUP']);
+        return $this->render('lesson/all_lessons.html.twig', ['lessons' => $lessons, 'content' => $content]);
+    }
+
+    /**
+     * @Route("/initialisation")
+     */
+    public function requestAction()
+    {
+        return $this->render('lesson/request.html.twig');
     }
 
 }

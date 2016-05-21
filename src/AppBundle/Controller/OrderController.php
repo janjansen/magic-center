@@ -98,6 +98,8 @@ class OrderController extends Controller
              * @var $product Product
              */
             $product = $p['product'];
+            
+            $product->setReservedTill(new \DateTime('+1 day'));
 
             for ($i = 0; $i < $p['quantity']; $i++) {
                 $pp = new PurchaseProduct();
@@ -107,6 +109,8 @@ class OrderController extends Controller
                 $pp->setPurchase($order);
                 $em->persist($pp);
             }
+            
+            $em->persist($product);
         }
 
         $em->flush();

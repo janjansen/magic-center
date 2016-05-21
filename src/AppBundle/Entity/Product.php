@@ -61,6 +61,11 @@ class Product
      */
     protected $isHidden;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $reservedTill;
+
     public $basketQuantity = 0;
 
     /**
@@ -284,4 +289,28 @@ class Product
         return false;
     }
     
+
+    /**
+     * Set reservedTill
+     *
+     * @param \DateTime $reservedTill
+     *
+     * @return Product
+     */
+    public function setReservedTill($reservedTill)
+    {
+        $this->reservedTill = $reservedTill;
+
+        return $this;
+    }
+
+    /**
+     * Get reservedTill
+     *
+     * @return \DateTime
+     */
+    public function getReservedTill()
+    {
+        return $this->reservedTill;
+    }
 }

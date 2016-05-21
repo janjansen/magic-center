@@ -27,7 +27,7 @@
                         <div class="scroll-pane">
                             <div class="wrap_shop_block">
                                 <div class="row">
-                                    {% for p in  category.getProducts %}
+                                    {% for p in  category.getAvailableProducts %}
                                         <div class="col-xs-4 -align-center">
                                             <div class="item_shop">
                                                 <div class="img_shop"><img src="{{ p.getMainImageWebPath }}" alt=""/></div>

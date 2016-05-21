@@ -134,6 +134,18 @@ class ProductCategory
         return $this->getName();
     }
 
+    public function getAvailableProducts()
+    {
+        $result = [];
+        foreach ($this->products as $p) {
+            if ($p->getIsHidden()) {
+                continue;
+            }            
+        }
+
+        return $result;
+    }
+
 
     /**
      * Set isHidden

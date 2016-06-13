@@ -20,8 +20,6 @@ class PurchaseAdmin extends BaseAdmin
         $datagridMapper
             ->add('id')
             ->add('status')
-            ->add('user.email')
-            ->add('user.username')
             ->add('deliveryAt')
             ->add('user.id')
             ->add('phone')
@@ -36,7 +34,6 @@ class PurchaseAdmin extends BaseAdmin
         $listMapper
             ->add('id')
             ->add('status')
-            ->add('user')
             ->add('phone')
             ->add('deliveryAt')
             ->add('_action', 'actions', array(
@@ -58,7 +55,7 @@ class PurchaseAdmin extends BaseAdmin
             ->add('phone')
             ->add('address')
             ->add('deliveryAt', 'sonata_type_datetime_picker', ['format' => 'yyyy-MM-dd HH:mm'])
-            ->add('status', 'choice', ['choices' => Purchase::getStatusesForAdminView()])
+            ->add('status', 'choice', ['choices' => array_flip(Purchase::getStatusesForAdminView())])
         ;
     }
 
@@ -69,7 +66,6 @@ class PurchaseAdmin extends BaseAdmin
     {
         $showMapper
             ->add('id')
-            ->add('user')
             ->add('status')
             ->add('deliveryAt')
             ->add('phone')

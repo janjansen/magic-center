@@ -17,17 +17,17 @@
                                     <th>ID заказа</th>
                                     <td>{{ order.id }}</td>
                                 </tr>
-                                <tr class="sonata-ba-view-container">
-                                    <th>Клиент</th>
-                                    <td>{{ order.user }}
-                                        {% if order.user %}
-                                            <a href="/admin/app/user/{{ order.user.id }}/show" class="btn btn-sm edit_link" title="Edit">
-                                                <i class="fa fa-align-left"></i>
-                                                Показать
-                                            </a>
-                                        {%  endif %}
-                                    </td>
-                                </tr>
+                                {#<tr class="sonata-ba-view-container">#}
+                                    {#<th>Клиент</th>#}
+                                    {#<td>{{ order.user }}#}
+                                        {#{% if order.user %}#}
+                                            {#<a href="/admin/app/user/{{ order.user.id }}/show" class="btn btn-sm edit_link" title="Edit">#}
+                                                {#<i class="fa fa-align-left"></i>#}
+                                                {#Показать#}
+                                            {#</a>#}
+                                        {#{%  endif %}#}
+                                    {#</td>#}
+                                {#</tr>#}
                                 <tr class="sonata-ba-view-container">
                                     <th>Телефон</th>
                                     <td>
@@ -37,13 +37,61 @@
                                 <tr class="sonata-ba-view-container">
                                     <th>Статус</th>
                                     <td>
-                                        {{ order.status }}
+                                        {{ order.getStatusRusName }}
+                                    </td>
+                                </tr>
+                                <tr class="sonata-ba-view-container">
+                                    <th>Фамилия</th>
+                                    <td>
+                                        {{ order.lname }}
+                                    </td>
+                                </tr>
+                                <tr class="sonata-ba-view-container">
+                                    <th>Имя</th>
+                                    <td>
+                                        {{ order.fname }}
+                                    </td>
+                                </tr>
+                                <tr class="sonata-ba-view-container">
+                                    <th>Email</th>
+                                    <td>
+                                        {{ order.email }}
+                                    </td>
+                                </tr>
+                                <tr class="sonata-ba-view-container">
+                                    <th>Общая стоимость</th>
+                                    <td>
+                                        {{ order.getAmount }}
+                                    </td>
+                                </tr>
+                                <tr class="sonata-ba-view-container">
+                                    <th>Страна</th>
+                                    <td>
+                                        {{ order.country }}
+                                    </td>
+                                </tr>
+                                <tr class="sonata-ba-view-container">
+                                    <th>Город</th>
+                                    <td>
+                                        {{ order.city }}
                                     </td>
                                 </tr>
                                 <tr class="sonata-ba-view-container">
                                     <th>Адрес</th>
                                     <td>
                                         {{ order.address }}
+                                    </td>
+                                </tr>
+                                <tr class="sonata-ba-view-container">
+                                    <th>Индекс</th>
+                                    <td>
+                                        {{ order.pindex }}
+                                    </td>
+                                </tr>
+                                <tr class="sonata-ba-view-container">
+                                    <th>Коммент</th>
+                                    <td>
+                                        {{ order.comment }}
                                     </td>
                                 </tr>
                                 <tr class="sonata-ba-view-container">
@@ -84,10 +132,11 @@
                                                                     <th>Товар</th>
                                                                     <td>
                                                                         {{ pp.product.name }}
-                                                                        <a href="/admin/app/product/{{ order.user.id }}/details" class="btn btn-sm edit_link" title="Edit">
+                                                                        <a href="/admin/app/product/{{ pp.product.id }}/details" class="btn btn-sm edit_link" title="Edit">
                                                                             <i class="fa fa-align-left"></i>
                                                                             Показать
-                                                                        </a>
+                                                                        </a><br>
+                                                                        <img width="250px" src="{{ pp.product.getMainImageWebPath }}">
                                                                     </td>
                                                                 </tr>
                                                                 <tr class="sonata-ba-view-container">

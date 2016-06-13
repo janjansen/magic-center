@@ -20,6 +20,7 @@ class Purchase
     const STATUS_PLACED = 'PLACED';
     const STATUS_DELIVERY_APPOINTED = 'DELIVERY_APPOINTED';
     const STATUS_DELIVERED = 'DELIVERED';
+    const STATUS_CANCELLED = 'CANCELLED';
 
     /**
      * @ORM\Id
@@ -34,18 +35,47 @@ class Purchase
     protected $purchaseProducts;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="purchases")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true)
-     */
-    protected $user;
-
-    /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $phone;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $lname;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $fname;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $email;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $city;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $pindex;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $country;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $comment;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $address;
 
@@ -62,10 +92,16 @@ class Purchase
     public static function getStatusesForAdminView()
     {
         return [
-            self::STATUS_PLACED => self::STATUS_PLACED,
-            self::STATUS_DELIVERY_APPOINTED => self::STATUS_DELIVERY_APPOINTED,
-            self::STATUS_DELIVERED => self::STATUS_DELIVERED,
+            self::STATUS_PLACED => 'Размещен',
+            self::STATUS_DELIVERY_APPOINTED => 'Доставка назначена',
+            self::STATUS_DELIVERED => 'Доставлен',
+            self::STATUS_CANCELLED => 'Отменен'
         ];
+    }
+
+    public function getStatusRusName()
+    {
+        return self::getStatusesForAdminView()[$this->getStatus()];
     }
 
     public function __toString()
@@ -122,30 +158,6 @@ class Purchase
     public function getPurchaseProducts()
     {
         return $this->purchaseProducts;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \AppBundle\Entity\User $user
-     *
-     * @return Purchase
-     */
-    public function setUser(\AppBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \AppBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 
     /**
@@ -261,5 +273,173 @@ class Purchase
         }
         
         return $amount;
+    }
+
+    /**
+     * Set lname
+     *
+     * @param string $lname
+     *
+     * @return Purchase
+     */
+    public function setLname($lname)
+    {
+        $this->lname = $lname;
+
+        return $this;
+    }
+
+    /**
+     * Get lname
+     *
+     * @return string
+     */
+    public function getLname()
+    {
+        return $this->lname;
+    }
+
+    /**
+     * Set fname
+     *
+     * @param string $fname
+     *
+     * @return Purchase
+     */
+    public function setFname($fname)
+    {
+        $this->fname = $fname;
+
+        return $this;
+    }
+
+    /**
+     * Get fname
+     *
+     * @return string
+     */
+    public function getFname()
+    {
+        return $this->fname;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Purchase
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set city
+     *
+     * @param string $city
+     *
+     * @return Purchase
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set pindex
+     *
+     * @param string $pindex
+     *
+     * @return Purchase
+     */
+    public function setPindex($pindex)
+    {
+        $this->pindex = $pindex;
+
+        return $this;
+    }
+
+    /**
+     * Get pindex
+     *
+     * @return string
+     */
+    public function getPindex()
+    {
+        return $this->pindex;
+    }
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     *
+     * @return Purchase
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Set comment
+     *
+     * @param string $comment
+     *
+     * @return Purchase
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
     }
 }

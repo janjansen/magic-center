@@ -1,5 +1,6 @@
 $(document).ready(function() {
     var basket = Cookies.getJSON('basket');
+    console.log(basket);
     if(!basket) {
         basket = [];
     }
@@ -29,13 +30,14 @@ $(document).ready(function() {
         if (!pid) {
             pid = $(e.target).parent().data('pid');
         }
+        var nb = [];
         for (var i in basket) {
             console.log(basket[i]);
-            if (basket[i] == pid) {
-                delete basket[i];
+            if (basket[i] != pid) {
+                nb.push(basket[i]);
             }
         }
-        Cookies.set('basket',basket);
+        Cookies.set('basket',nb);
         window.location.reload();
     });
     

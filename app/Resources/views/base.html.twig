@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -9,21 +11,33 @@
     <!-- 	<meta name="viewport" content="width=device-width"> -->
     <!--  <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 
-    <title>{% block title %}Welcome!{% endblock %}</title>
-    {% block stylesheets %}{% endblock %}
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap-grid.min.css">
+
     <link rel="stylesheet" href="/jScrollPane/jquery.jscrollpane.css" type="text/css" media="screen"/>
     <script type="text/javascript" src="/jScrollPane/jquery.mousewheel.js"></script>
     <script type="text/javascript" src="/jScrollPane/jquery.jscrollpane.min.js"></script>
+
     <link rel="stylesheet" href="/fancy/jquery.fancybox.css" type="text/css" media="screen"/>
     <script type="text/javascript" src="/fancy/jquery.fancybox.js"></script>
-    <script type="text/javascript" src="/js/owl.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/owl.css"/>
+
+    <link rel="stylesheet" href="/slick/slick.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/slick/slick-theme.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="/slick/slick.min.js"></script>
+
+
+
+    <!-- <script type="text/javascript" src="js/owl.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/owl.css"/>-->
+
+
+
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <script type="text/javascript" src="/js/init.js"></script>
     <script type="text/javascript" src="/js/canvas.js"></script>
+
+
     <!--[if lt IE 9]>
     <link rel="stylesheet" type="text/css" href="/oldbrowser/css/jquery.reject.css"/>
     <script type="text/javascript" src="/oldbrowser/jquery.reject.js"></script>
@@ -111,45 +125,16 @@
 
 
 
-<div class="modal"  id="myModal1" >
-    <div class="wrap_modal wr_modal1">
+{#<div class="modal"  id="myModal1" >#}
+    {#<div class="wrap_modal wr_modal1">#}
 
-        <div class="modal1">
-            <div class="modal_body">
-                <p>Для записи на курс...</p>
-            </div>
-            <div class="wrap_modal_btn clearfix">
-                <div class="modal_total">
-                    <a class="btn-red btn-modal"  href="#">заполнить анкету</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-{#<div class="modal"  id="myModal2" >#}
-    {#<div class="wrap_modal  wr_modal2">#}
-
-        {#<div class="modal2">#}
-            {#<div class="tab_row">#}
-                {#<div class="col-tr col-tr1">#}
-                    {#<div class="item_img">#}
-                        {#<img src="images/item4.png" alt="">#}
-                    {#</div>#}
-                {#</div>#}
-
-                {#<div class="col-tr col-tr2">#}
-
-                    {#<div class="descript">#}
-                        {#<p>Кулон...</p>#}
-                    {#</div>#}
-
-                    {#<div class="wrap_modal_btn clearfix">#}
-                        {#<div class="modal_total">#}
-                            {#<div class="total_modal">руб.  1,450.00</div>#}
-                            {#<a class="btn-red btn-modal" href="#">добавить в корзину</a>#}
-                        {#</div>#}
-                    {#</div>#}
+        {#<div class="modal1">#}
+            {#<div class="modal_body">#}
+                {#<p>Для записи на курс...</p>#}
+            {#</div>#}
+            {#<div class="wrap_modal_btn clearfix">#}
+                {#<div class="modal_total">#}
+                    {#<a class="btn-red btn-modal"  href="#">заполнить анкету</a>#}
                 {#</div>#}
             {#</div>#}
         {#</div>#}

@@ -27,13 +27,16 @@
                         <div class="scroll-pane">
                             <div class="wrap_shop_block">
                                 <div class="row">
-                                    {% for p in  category.getAvailableProducts %}
-                                        <div class="col-xs-4 -align-center">
-                                            <div class="item_shop">
-                                                <div class="img_shop"><img src="{{ p.getMainImageWebPath }}" alt=""/></div>
-                                                <a href="#mp{{ p.id }}" class="btn-less btnModal">подробнее</a>
+                                    {% for p in  category.getProducts %}
+                                        {% if p.checkIsVisiable %}
+                                            <div class="col-xs-4 -align-center">
+                                                <div class="item_shop">
+                                                    <div class="img_shop"><img src="{{ p.getMainImageWebPath }}" alt=""/></div>
+                                                    {#<a href="#mp{{ p.id }}" class="btn-less btnModal">подробнее</a>#}
+                                                    <a href="#mm{{ p.id }}" class="btn-less btnModal{{ p.id }}">купить</a>
+                                                </div>
                                             </div>
-                                        </div>
+                                        {% endif %}
                                     {% endfor %}
                                 </div>
                             </div>
@@ -45,8 +48,29 @@
     </div>
 </div>
 {% for p in  category.getProducts %}
-    {% include ':parts:product_modal.html.twig' %}
+    {% if p.checkIsVisiable %}
+        {% include ':parts:product_modal.html.twig' %}
+    {% endif %}
 {% endfor %}
+<script>
+    $(document).ready(function(){
+        {% for p in  category.getProducts %}
+            {% if p.isHidden == false %}
+                $(document).on('click', '.btnModal{{ p.id }}', function(event){
+                    event.preventDefault();
+                    $.fancybox({
+                        scrolling: 'visible',
+                        href: '#mm{{ p.id }}',
+                        wrapCSS: 'wrap_fanc',
+                        padding: 0
+                    });
+
+                    $('.slick').slick('slickAdd',"0");
+                });
+            {% endif %}
+        {% endfor %}
+    });
+</script>
 <script src="/js/basket.js"></script>
 {% endblock %}
 

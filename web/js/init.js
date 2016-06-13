@@ -11,7 +11,59 @@ window.onload = function(){
 $(document).ready(function(){
 
 
-  var owl = jQuery(".slick");
+  // var owl = jQuery(".slick");
+
+  $('.slick').slick({
+
+        slidesToShow: 2,
+
+        slidesToScroll: 1,
+
+        autoplay: true,
+
+        autoplaySpeed: 5000,
+
+        arrows: true,
+
+        dots: false,
+
+        speed: 500
+      });
+
+
+
+  $(document).on('click', '.btnModal5', function(event){
+      event.preventDefault();
+      $.fancybox({
+        scrolling: 'visible',
+        href: '#myModal5',
+        wrapCSS: 'wrap_fanc',
+        padding: 0 
+    });
+    $('.scroll-pane').jScrollPane();
+  });
+
+
+  // $(document).on('click', '.btnModal3', function(event){
+  //     event.preventDefault();
+  //     $.fancybox({
+  //       scrolling: 'visible',
+  //       href: '#myModal3',
+  //       wrapCSS: 'wrap_fanc',
+  //       padding: 0
+  //   });
+  //
+  //   $('.slick').slick('slickAdd',"0");
+  //    // jQuery(".slick").owlCarousel({
+  //    //      loop:true,
+  //    //      margin:0,
+  //    //      nav:true,
+  //    //      navText:[''],
+  //    //      items:2,
+  //    //      margin: 10,
+  //    //      dots:false
+  //    //  });
+  // });
 
 
 
@@ -19,21 +71,6 @@ $(document).ready(function(){
         scrolling: 'visible',
         wrapCSS: 'wrap_fanc',
         padding: 0,
-        fitToView:false,
-        beforeShow: function() {
-          owl.owlCarousel({
-          loop:true,
-          margin:0,
-          nav:true,
-          navText:[''],
-          items:2,
-          margin: 10,
-          dots:false
-      });
-      }
-
+        fitToView:false
     });
-
-
-
  });

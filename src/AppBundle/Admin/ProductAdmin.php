@@ -21,7 +21,6 @@ class ProductAdmin extends BaseAdmin
             ->add('name')
             ->add('cost')
             ->add('category')
-            ->add('reservedTill')
             ->add('isHidden', 'doctrine_orm_number', [], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
         ;
     }
@@ -37,7 +36,6 @@ class ProductAdmin extends BaseAdmin
             ->add('cost')
             ->add('category')
             ->add('reservedTill')
-//            ->add('description')
             ->add('isHidden', 'boolean')
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -59,8 +57,8 @@ class ProductAdmin extends BaseAdmin
             ->add('name')
             ->add('cost')
             ->add('description')
+            ->add('reservedTill', 'sonata_type_datetime_picker', ['format' => 'yyyy-MM-dd HH:mm'])
             ->add('category')
-            ->add('reservedTill')
             ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
 
         ;
@@ -77,7 +75,6 @@ class ProductAdmin extends BaseAdmin
             ->add('description')
             ->add('images')
             ->add('isHidden')
-            ->add('reservedTill')
         ;
     }
 

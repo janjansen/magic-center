@@ -16,7 +16,6 @@
         {#<input type="submit">#}
     {#</form>#}
 
-    <a href="" id="clearBasket">очстить корзину</a>
 <div class="wrapper">
     {% include 'parts/header.html.twig' %}
     <div class="wrap_12">
@@ -29,60 +28,113 @@
                     </div>
                     <div class="content_item content_item3">
                         <div class="scroll-pane">
-                            <form method="POST" action="/order/create">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <div class="wrap_basket_block">
-                                            <div class="basket_block table_block">
-                                                <div class="table_tr table_tr1">
-                                                    Товар
-                                                </div>
-                                                <div class="table_tr table_tr2">
-                                                    Количество
-                                                </div>
-                                                <div class="table_tr table_tr2">
-                                                    Цена
-                                                </div>
-                                                <div class="table_tr table_tr2">
-                                                    Удалить
-                                                </div>
-                                            </div>
-                                            {% for p in products %}
-                                                <div class="basket_block basket_item table_block">
-                                                    <div class="table_tr table_tr1">
-                                                        <a class="item_basket" href="#">
-                                                            <div class="img_bask"><img src="{{ p.getMainImageWebPath }}" alt=""/></div>
-                                                            <div class="name_item">{{ p.name }}</div>
-                                                        </a>
+                                <div class="wrap_form wrap_modal wrap_form_mod  wr_modal2" style="background: none;">
+                                    <form method="post" action="/order/create">
+                                        <div class="row">
+                                            <div class="col-xs-8">
+
+                                                {#<div class="logos"><img src="images/logo.png" alt=""></div>#}
+
+                                                <div class="title_f_bott">
+                                                    <div class="title_f2">Оформление заказа.</div>
+                                                    <p>В поле «Коментарий» укажите желаемый способ:</p>
+                                                    <p>1.Почта России от 300р., Самовывоз по Москве бесплатно<span class="star">*</span></p>
+                                                </div><!--title_f_bott-->
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <form class="form form5">
+                                                            <div class="row">
+                                                                <div class="col-xs-6">
+
+                                                                    <label class="label">Имя<span class="star">*</span></label>
+                                                                    <input class="input" type="text" name="order[fname]" maxlength="255" required>
+
+                                                                    <label class="label">Фамилия<span class="star">*</span></label>
+                                                                    <input class="input" type="text" name="order[lname]" maxlength="255" required>
+
+                                                                    <label class="label">Email<span class="star">*</span></label>
+                                                                    <input class="input" type="text"  name="order[email]" maxlength="255" required>
+
+                                                                    <label class="label">Телефон<span class="star">*</span></label>
+                                                                    <input class="input" type="text"  name="order[phone]"  maxlength="15" required>
+
+                                                                    <label class="label">Коментарий<span class="star">*</span></label>
+                                                                    <textarea class="textarea"  name="order[comment]"></textarea>
+                                                                    {% set errors = app.session.flashbag.get('order_error')  %}
+                                                                    {% if errors is not empty %}
+                                                                        {% for e in errors %}
+                                                                            <p style="color: red; font-size: 24px">{{ e }}</p>
+                                                                        {% endfor %}
+                                                                    {% endif %}
+
+                                                                </div>
+                                                                <div class="col-xs-6">
+
+                                                                    <label class="label">Адрес<span class="star">*</span></label>
+                                                                    <textarea class="textarea"  name="order[address]"></textarea>
+
+                                                                    <div class="rows">
+                                                                        <div class="col-xs-6">
+                                                                            <label class="label">Город<span class="star">*</span></label>
+                                                                            <input class="input" type="text"  name="order[city]" maxlength="255" required>
+                                                                        </div>
+                                                                        <div class="col-xs-6">
+                                                                            <label class="label">Почтовый индекс<span class="star">*</span></label>
+                                                                            <input class="input" type="text"  name="order[pindex]" maxlength="255" required>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <label class="label">Страна<span class="star">*</span></label>
+                                                                    <input class="input" type="text"  name="order[country]" maxlength="255" required>
+
+                                                                    <input class="btn-submit" type="submit" value="Подтвердить заказ">
+                                                                    <div class="form_bottom">
+                                                                        <p>Формирование заказа 1-2 недели.</p>
+                                                                        <p><span class="star">*</span> По городу Москва самовывоз м.Пушкинская, Кузьминки</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
                                                     </div>
-                                                    <div class="table_tr table_tr2">
-                                                        <input class="input_count" type="text" data-cost="{{ p.cost }}" name="pid[{{ p.getId }}]" value="{{ p.basketQuantity }}">
-                                                    </div>
-                                                    <div class="table_tr table_tr2">
-                                                        {{ p.getCost }} руб.
-                                                    </div>
-                                                    <div class="table_tr table_tr2">
-                                                        <a class="btn-close deleteFromBasketBtn" data-pid="{{ p.getId }}" href="#"><i></i></a>
-                                                    </div>
                                                 </div>
-                                            {% endfor %}
-                                            <div class="total_wrap">
-                                                <div class="total_block">
-                                                    <div class="row">
-                                                        <div class="col-xs-5">
-                                                            <div class="total">Итого</div>
+
+                                            </div><!--col-xs-8-->
+                                            <div class="col-xs-4">
+                                                <div class="basket_top">
+                                                    <div class="title_basket">Ваша корзина</div>
+                                                </div>
+                                                <div class="wrap_scroll">
+                                                    <div class="scroll-pane scroll-modal">
+                                                        <div class="item_scrol">
+                                                            {% for p in products %}
+                                                                <div class="item_basket">
+                                                                    <div class="suum">
+                                                                        <div class="name_t">{{ p.name }}</div>
+                                                                        <div class="basket_cost">{{ p.cost }} руб.</div>
+                                                                        <a href="/basket/delete?pid={{ p.id }}" class="basket_g" data-pid="{{ p.id }}">х</a>
+                                                                    </div>
+                                                                    <div class="img_item_b">
+                                                                        <img style="width:130px;" src="{{ p.getMainImageWebPath }}" alt="">
+                                                                    </div>
+                                                                    <input type="hidden" name="pid[]" value="{{ p.id }}">
+                                                                </div>
+                                                            {% endfor %}
                                                         </div>
-                                                        <div class="col-xs-7">
-                                                            <div class="total_summ" id="totalAmount"></div>
-                                                        </div>
-                                                    </div>
+                                                    </div><!--scroll-pane-->
+                                                </div><!--wrap_scroll-->
+
+
+                                                <div class="basket_bottom">
+                                                    <a href="#" class="basket_redact">Редактировать корзину</a>
+                                                    <div class="totl_basket">Итого: <span>{{ total }} руб.</span></div>
                                                 </div>
-                                                <button type="submit" class="btn-red btn-total">Оформление</button>
+
+
+
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -90,9 +142,6 @@
         </div>
     </div>
 </div>
-{% for p in  category.getProducts %}
-    {% include ':parts:product_modal.html.twig' with p %}
-{% endfor %}
 {% endblock %}
 {% block javascripts %}
     <script src="/js/basket.js"></script>

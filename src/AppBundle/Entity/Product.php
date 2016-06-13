@@ -57,14 +57,14 @@ class Product
     protected $category;
 
     /**
-     * @ORM\Column(type="smallint")
-     */
-    protected $isHidden;
-
-    /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     protected $reservedTill;
+
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    protected $isHidden;
 
     public $basketQuantity = 0;
 
@@ -312,5 +312,16 @@ class Product
     public function getReservedTill()
     {
         return $this->reservedTill;
+    }
+
+    public function checkIsVisiable()
+    {
+        $isNotReserved = true;
+        if ($this->getReservedTill()) {
+            $now = new \DateTime();
+            $isNotReserved = $now > $this->getReservedTill();
+        }
+
+        return !$this->getIsHidden() && $isNotReserved;
     }
 }

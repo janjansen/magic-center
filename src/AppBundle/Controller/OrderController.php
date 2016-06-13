@@ -13,14 +13,45 @@ use AppBundle\Entity\PurchaseProduct;
 use AppBundle\Entity\Purchase;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class OrderController extends Controller
 {
+
+    /**
+     * @Route("/basket/add")
+     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function addBasketAction(Request $request)
+    {
+        $basket = json_decode($request->cookies->get('basket'), true);
+        $pid = $request->get('pid');
+        $product = $this->getDoctrine()->getRepository('AppBundle:Product')->find($pid);
+        if (!$product) {
+            throw new HttpException(404);
+        }
+        /**
+         * @var Product $product
+         */
+        $product->setReservedTill(new \DateTime("+1 day"));
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->persist($product);
+        $em->flush();
+        $basket[] = $pid;
+        $cookie = new Cookie('basket', json_encode(array_unique($basket)));
+        $response = new RedirectResponse('/basket');;
+        $response->headers->setCookie($cookie);
+        return $response;
+    }
+
     /**
      * @Route("/basket")
      *
@@ -34,15 +65,41 @@ class OrderController extends Controller
             return $this->render(':order:basket_empty.html.twig');    
         }
         $products = $this->getDoctrine()->getRepository('AppBundle:Product')->findBy(['id' => array_unique($productIds)]);
-        foreach ($productIds as $pid) {
-            foreach ($products as $p) {
-                if ($p->getId() == $pid) {
-                    $p->basketQuantity ++;
-                }
+        $total = array_reduce($products, function ($t,$i) {$t = $t + $i->getCost(); return $t;}, 0);
+        return $this->render(':order:basket.html.twig', ['products' => $products, 'total' => $total]);
+    }
+
+    /**
+     * @Route("/basket/delete")
+     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function deleteBasketAction(Request $request)
+    {
+        $basket = json_decode($request->cookies->get('basket'), true);
+        $pid = $request->get('pid');
+        $product = $this->getDoctrine()->getRepository('AppBundle:Product')->find($pid);
+        if (!$product) {
+            throw new HttpException(404);
+        }
+        /**
+         * @var Product $product
+         */
+        $product->setReservedTill(new \DateTime("now"));
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->persist($product);
+        $em->flush();
+        $nb = [];
+        foreach ($basket as &$v) {
+            if ($v != $pid) {
+                $nb[] = $v;
             }
         }
-        $total = array_reduce($products, function ($t,$i) {$t = $t + $i->basketQuantity * $i->getCost(); return $t;}, 0);
-        return $this->render(':order:basket.html.twig', ['products' => $products]);
+        $cookie = new Cookie('basket', json_encode(array_unique($nb)));
+        $response = new RedirectResponse('/basket');;
+        $response->headers->setCookie($cookie);
+        return $response;
     }
 
     /**
@@ -62,6 +119,7 @@ class OrderController extends Controller
 
 //        $order = $this->getDoctrine()->getRepository('AppBundle:Purchase')->find(1);
 
+        $this->getDoctrine()->getEntityManager()->refresh($order);
         return $this->render(':order:go_to_payment.html.twig', ['order' => $order]);
     }
 
@@ -80,6 +138,21 @@ class OrderController extends Controller
             return false;
         }
 
+        if (count($v->validate(@$data['email'], [new Assert\NotBlank(), new Assert\NotNull(), new Assert\Email(), new Assert\Length(['min' => 1, 'max' => 255])]))) {
+            $flashes->set('order_error', "Некорректный email");
+            return false;
+        }
+
+        if (count($v->validate(@$data['lname'], [new Assert\NotBlank(), new Assert\NotNull(), new Assert\Length(['min' => 1, 'max' => 1000])]))) {
+            $flashes->set('order_error', "Некорректная фамилия");
+            return false;
+        }
+
+        if (count($v->validate(@$data['fname'], [new Assert\NotBlank(), new Assert\NotNull(), new Assert\Length(['min' => 1, 'max' => 1000])]))) {
+            $flashes->set('order_error', "Некорректное имя");
+            return false;
+        }
+
         return $data;
     }
 
@@ -88,9 +161,15 @@ class OrderController extends Controller
         $em = $this->get('doctrine.orm.default_entity_manager');
         $order = new Purchase();
         $order->setStatus(Purchase::STATUS_PLACED);
-        $order->setUser($this->getUser());
         $order->setAddress($orderData['address']);
         $order->setPhone($orderData['phone']);
+        $order->setEmail($orderData['email']);
+        $order->setCity($orderData['city']);
+        $order->setComment($orderData['comment']);
+        $order->setCountry($orderData['country']);
+        $order->setFname($orderData['fname']);
+        $order->setLname($orderData['lname']);
+        $order->setPindex($orderData['pindex']);
         $em->persist($order);
 
         foreach ($products as $p) {
@@ -98,19 +177,13 @@ class OrderController extends Controller
              * @var $product Product
              */
             $product = $p['product'];
-            
-            $product->setReservedTill(new \DateTime('+1 day'));
 
-            for ($i = 0; $i < $p['quantity']; $i++) {
-                $pp = new PurchaseProduct();
-                $pp->setStatus(PurchaseProduct::STATUS_BOOKED);
-                $pp->setCost($product->getCost());
-                $pp->setProduct($product);
-                $pp->setPurchase($order);
-                $em->persist($pp);
-            }
-            
-            $em->persist($product);
+            $pp = new PurchaseProduct();
+            $pp->setStatus(PurchaseProduct::STATUS_BOOKED);
+            $pp->setCost($product->getCost());
+            $pp->setProduct($product);
+            $pp->setPurchase($order);
+            $em->persist($pp);
         }
 
         $em->flush();
@@ -125,15 +198,10 @@ class OrderController extends Controller
         $constraints = [new Assert\Type(['type' => 'numeric']), new Assert\GreaterThan(0)];
         $result = [];
 
-        foreach ($rawData as $pid => $q) {
+        foreach ($rawData as $pid) {
 
             if (count($v->validate($pid, $constraints))) {
                 $flashes->set('order_error', "Некорректный ID товара: $pid");
-                return false;
-            }
-
-            if (count($v->validate($q, $constraints))) {
-                $flashes->set('order_error', "Некорректное количество товара: $q");
                 return false;
             }
 
@@ -146,7 +214,7 @@ class OrderController extends Controller
 
             $result[] = [
                 'product' => $product,
-                'quantity' => $q,
+                'quantity' => 1,
             ];
         }
 

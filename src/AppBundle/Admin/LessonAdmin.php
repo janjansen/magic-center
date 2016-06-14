@@ -20,6 +20,7 @@ class LessonAdmin extends Admin
             ->add('filename')
             ->add('title')
             ->add('description')
+            ->add('cost')
             ->add('isHidden', 'doctrine_orm_number', [], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
         ;
     }
@@ -34,6 +35,7 @@ class LessonAdmin extends Admin
 //            ->add('filename')
             ->add('title')
 //            ->add('description')
+            ->add('cost')
             ->add('isHidden', 'boolean')
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -61,6 +63,7 @@ class LessonAdmin extends Admin
             ->add('file', 'file', $options)
             ->add('title')
             ->add('description')
+            ->add('cost')
             ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
 
         ;

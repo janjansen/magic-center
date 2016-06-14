@@ -1,0 +1,290 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: roman
+ * Date: 6/14/2016
+ * Time: 20:41
+ */
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
+/**
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\LessonRepository")
+ * @ORM\Table(name="lesson_request")
+ * @ORM\HasLifecycleCallbacks()
+ */
+class LessonRequest
+{
+    const SERVER_PATH_TO_IMAGE_FOLDER = '/home/bh59203/public_html/rs2/web/images/lesson_request/';
+    const WEB_PATH_TO_IMAGE_FOLDER = '/images/lesson_request/';
+
+    /**
+     * Unmapped property to handle file uploads
+     */
+    private $file;
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $filename;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $name;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $email;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $city;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $phone;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Lesson")
+     * @ORM\JoinColumn(name="lesson_id", referencedColumnName="id")
+     */
+    protected $lesson;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $status;
+
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+        if (null === $file) {
+            return;
+        }
+
+        $name = md5(uniqid()) . md5(microtime())  . '.' . $file->getClientOriginalExtension();
+
+        $file->move(
+            self::SERVER_PATH_TO_IMAGE_FOLDER,
+            $name
+        );
+
+
+        $this->filename = $name;
+
+//        $this->setFile(null);
+
+//        $this->file = $file;
+    }
+
+    public function getWebPath()
+    {
+        if(!$this->getFilename()) {
+            return false;
+        }
+        return static::WEB_PATH_TO_IMAGE_FOLDER . $this->getFilename();
+    }
+
+    public function __toString()
+    {
+        return $this->getFilename();
+    }
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set filename
+     *
+     * @param string $filename
+     *
+     * @return LessonRequest
+     */
+    public function setFilename($filename)
+    {
+        $this->filename = $filename;
+
+        return $this;
+    }
+
+    /**
+     * Get filename
+     *
+     * @return string
+     */
+    public function getFilename()
+    {
+        return $this->filename;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return LessonRequest
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return LessonRequest
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set city
+     *
+     * @param string $city
+     *
+     * @return LessonRequest
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     *
+     * @return LessonRequest
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set lesson
+     *
+     * @param \AppBundle\Entity\Lesson $lesson
+     *
+     * @return LessonRequest
+     */
+    public function setLesson(\AppBundle\Entity\Lesson $lesson = null)
+    {
+        $this->lesson = $lesson;
+
+        return $this;
+    }
+
+    /**
+     * Get lesson
+     *
+     * @return \AppBundle\Entity\Lesson
+     */
+    public function getLesson()
+    {
+        return $this->lesson;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     *
+     * @return LessonRequest
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+}

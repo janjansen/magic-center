@@ -33,9 +33,7 @@
                                                 </div>
                                             </div>
                                             <div class="wrap_btn">
-
-                                                <a href="#myModal1" class="btn-less btnModal">записаться</a>
-
+                                                <a href="/initialisation/lesson/{{ l.id }}" class="btn-less btnModal">записаться</a>
                                             </div>
                                         </div><!--less_block-->
                                     {% endfor %}
@@ -46,21 +44,6 @@
                 </div>
             </div>
         </div> <!-- wrap_12-->
-    </div>
-    <div class="modal"  id="myModal1" >
-        <div class="wrap_modal wr_modal1">
-
-            <div class="modal1">
-                <div class="modal_body">
-                    <p>{{ content.content }}</p>
-                </div>
-                <div class="wrap_modal_btn clearfix">
-                    <div class="modal_total">
-                        <a class="btn-red btn-modal"  href="/initialisation">заполнить анкету</a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 {% endblock %}
 

@@ -234,45 +234,4 @@ class Employee
     {
         return $this->getFilename();
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->lessons = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add lesson
-     *
-     * @param \AppBundle\Entity\Lesson $lesson
-     *
-     * @return Employee
-     */
-    public function addLesson(\AppBundle\Entity\Lesson $lesson)
-    {
-        $this->lessons[] = $lesson;
-
-        return $this;
-    }
-
-    /**
-     * Remove lesson
-     *
-     * @param \AppBundle\Entity\Lesson $lesson
-     */
-    public function removeLesson(\AppBundle\Entity\Lesson $lesson)
-    {
-        $this->lessons->removeElement($lesson);
-    }
-
-    /**
-     * Get lessons
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getLessons()
-    {
-        return $this->lessons;
-    }
 }

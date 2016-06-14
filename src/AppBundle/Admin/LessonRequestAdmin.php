@@ -2,13 +2,14 @@
 
 namespace AppBundle\Admin;
 
+use AppBundle\Entity\LessonRequest;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class EmployeeAdmin extends Admin
+class LessonRequestAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -19,8 +20,10 @@ class EmployeeAdmin extends Admin
             ->add('id')
             ->add('filename')
             ->add('name')
-            ->add('description')
-            ->add('isHidden', 'doctrine_orm_number', [], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
+            ->add('email')
+            ->add('city')
+            ->add('phone')
+            ->add('status')
         ;
     }
 
@@ -33,8 +36,10 @@ class EmployeeAdmin extends Admin
             ->add('id')
             ->add('filename')
             ->add('name')
-            ->add('description')
-            ->add('isHidden', 'boolean')
+            ->add('email')
+            ->add('city')
+            ->add('phone')
+            ->add('status')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -50,19 +55,14 @@ class EmployeeAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $image = $this->getSubject();
-
-        $options = ['required' => false];
-        if ($image && $image->getWebPath()) {
-            $options['help'] = '<img src="'.$image->getWebPath().'" class="admin-preview" />';
-        }
-
         $formMapper
-            ->add('file', 'file', $options)
+            ->add('id')
+            ->add('filename')
             ->add('name')
-            ->add('description')
-            ->add('lessons')
-            ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
+            ->add('email')
+            ->add('city')
+            ->add('phone')
+            ->add('status', 'choice', ['choices' => array_flip(LessonRequest::getStatusesForAdminView())])
         ;
     }
 
@@ -75,8 +75,10 @@ class EmployeeAdmin extends Admin
             ->add('id')
             ->add('filename')
             ->add('name')
-            ->add('description')
-            ->add('isHidden')
+            ->add('email')
+            ->add('city')
+            ->add('phone')
+            ->add('status')
         ;
     }
 }

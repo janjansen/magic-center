@@ -76,3 +76,8 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: Контент, label: Страницы }
 
+    app.admin.lesson_request:
+        class: AppBundle\Admin\LessonRequestAdmin
+        arguments: [~, AppBundle\Entity\LessonRequest, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Заказы, label: Завяки }

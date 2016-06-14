@@ -18,8 +18,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  */
 class Lesson
 {
-    const SERVER_PATH_TO_IMAGE_FOLDER = '/home/roman/www/magic/web/video/lessons/';
-    const WEB_PATH_TO_IMAGE_FOLDER = '/video/lessons/';
+    const SERVER_PATH_TO_IMAGE_FOLDER = '/home/bh59203/public_html/rs2/web/images/lessons/';
+    const WEB_PATH_TO_IMAGE_FOLDER = '/images/lessons/';
 
     /**
      * Unmapped property to handle file uploads
@@ -39,6 +39,11 @@ class Lesson
     protected $filename;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    protected $title;
+
+    /**
      * @ORM\Column(type="text")
      */
     protected $description;
@@ -47,6 +52,18 @@ class Lesson
      * @ORM\Column(type="smallint")
      */
     protected $isHidden;
+
+    /**
+     * @ORM\Column(type="decimal", precision=8, scale=2)
+     *
+     * @var float
+     */
+    protected $cost;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Employee", mappedBy="lessons")
+     */
+    private $masters;
 
     /**
      * Get id
@@ -89,7 +106,23 @@ class Lesson
      */
     public function setFile(UploadedFile $file = null)
     {
-        $this->file = $file;
+        if (null === $file) {
+            return;
+        }
+
+        $name = md5(uniqid()) . md5(microtime())  . '.' . $file->getClientOriginalExtension();
+
+        $file->move(
+            self::SERVER_PATH_TO_IMAGE_FOLDER,
+            $name
+        );
+
+
+        $this->filename = $name;
+
+//        $this->setFile(null);
+
+//        $this->file = $file;
     }
 
     /**
@@ -104,21 +137,7 @@ class Lesson
 
     public function upload()
     {
-        if (null === $this->getFile()) {
-            return;
-        }
 
-        $name = md5(uniqid()) . md5(microtime())  . '.' . $this->getFile()->getClientOriginalExtension();
-
-        $this->getFile()->move(
-            self::SERVER_PATH_TO_IMAGE_FOLDER,
-            $name
-        );
-
-
-        $this->filename = $name;
-
-        $this->setFile(null);
     }
 
     /**
@@ -203,5 +222,73 @@ class Lesson
     public function getDescription()
     {
         return $this->description;
+    }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set cost
+     *
+     * @param string $cost
+     *
+     * @return Lesson
+     */
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
+
+        return $this;
+    }
+
+    /**
+     * Get cost
+     *
+     * @return string
+     */
+    public function getCost()
+    {
+        return $this->cost;
+    }
+
+    /**
+     * Add master
+     *
+     * @param \AppBundle\Entity\Employee $master
+     *
+     * @return Lesson
+     */
+    public function addMaster(\AppBundle\Entity\Employee $master)
+    {
+        $this->masters[] = $master;
+
+        return $this;
+    }
+
+    /**
+     * Remove master
+     *
+     * @param \AppBundle\Entity\Employee $master
+     */
+    public function removeMaster(\AppBundle\Entity\Employee $master)
+    {
+        $this->masters->removeElement($master);
+    }
+
+    /**
+     * Get masters
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMasters()
+    {
+        return $this->masters;
     }
 }

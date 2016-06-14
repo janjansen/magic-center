@@ -2049,6 +2049,12 @@ p{
     display: block;
     line-height: 22px;
 }
+
+.labelBig {
+    font-size: 36px;
+    display: block;
+    line-height: 22px;
+}
 .rows .col-xs-6:last-child{
     padding: 0 0 0 5px;
 }

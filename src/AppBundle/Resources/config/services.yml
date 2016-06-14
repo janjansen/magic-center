@@ -1,0 +1,6 @@
+services:
+    app.admin.lesson_request:
+        class: AppBundle\Admin\LessonRequestAdmin
+        arguments: [~, AppBundle\Entity\LessonRequest, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: LessonRequest }

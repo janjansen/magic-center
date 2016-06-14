@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class LessonController extends Controller
@@ -26,11 +27,15 @@ class LessonController extends Controller
     }
 
     /**
-     * @Route("/initialisation")
+     * @Route("/initialisation/lesson/{id}")
      */
-    public function requestAction()
+    public function requestAction($id)
     {
-        return $this->render('lesson/request.html.twig');
+        $lesson = $this->getDoctrine()->getRepository('AppBundle:Lesson')->find($id);
+        if (!$lesson) {
+            throw new HttpException(404);
+        }
+        return $this->render('lesson/request.html.twig', ['lesson' => $lesson]);
     }
 
 }

@@ -57,7 +57,7 @@ class ProductAdmin extends BaseAdmin
             ->add('name')
             ->add('cost')
             ->add('description')
-            ->add('reservedTill', 'sonata_type_datetime_picker', ['format' => 'yyyy-MM-dd HH:mm'])
+            ->add('reservedTill', 'sonata_type_datetime_picker', ['format' => 'yyyy-MM-dd HH:mm', 'required' => false])
             ->add('category')
             ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
 

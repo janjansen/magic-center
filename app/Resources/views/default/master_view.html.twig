@@ -29,17 +29,17 @@
 
                                         <div class="img_master"><img src="{{ master.getWebPath }}" alt=""></div>
 
-                         {#/               <div class="wrap_kurs">#}
+                                        <div class="wrap_kurs">
 
-                                            {#<div class="title_kurs">Курсы</div>#}
+                                            <div class="title_kurs">Курсы</div>
 
-                                            {#<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,#}
+                                            {% for lesson in master.lessons %}
+                                                <h4 style="margin: 10px 0">{{ lesson.title }}</h4>
+                                                <p>{{ lesson.description }}</p>
+                                            {% endfor %}
 
-                                                {#sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.#}
 
-                                            {#</p>#}
-
-                                        {#</div>#}
+                                        </div>
 
                                     </div>
 

@@ -54,6 +54,18 @@ class Lesson
     protected $isHidden;
 
     /**
+     * @ORM\Column(type="decimal", precision=8, scale=2)
+     *
+     * @var float
+     */
+    protected $cost;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Employee", mappedBy="lessons")
+     */
+    private $masters;
+
+    /**
      * Get id
      *
      * @return integer
@@ -154,7 +166,7 @@ class Lesson
 
     public function __toString()
     {
-        return $this->getFilename();
+        return $this->getTitle();
     }
 
     /**
@@ -220,5 +232,63 @@ class Lesson
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * Set cost
+     *
+     * @param string $cost
+     *
+     * @return Lesson
+     */
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
+
+        return $this;
+    }
+
+    /**
+     * Get cost
+     *
+     * @return string
+     */
+    public function getCost()
+    {
+        return $this->cost;
+    }
+
+    /**
+     * Add master
+     *
+     * @param \AppBundle\Entity\Employee $master
+     *
+     * @return Lesson
+     */
+    public function addMaster(\AppBundle\Entity\Employee $master)
+    {
+        $this->masters[] = $master;
+
+        return $this;
+    }
+
+    /**
+     * Remove master
+     *
+     * @param \AppBundle\Entity\Employee $master
+     */
+    public function removeMaster(\AppBundle\Entity\Employee $master)
+    {
+        $this->masters->removeElement($master);
+    }
+
+    /**
+     * Get masters
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMasters()
+    {
+        return $this->masters;
     }
 }

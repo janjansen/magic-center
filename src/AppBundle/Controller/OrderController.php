@@ -66,7 +66,15 @@ class OrderController extends Controller
         }
         $products = $this->getDoctrine()->getRepository('AppBundle:Product')->findBy(['id' => array_unique($productIds)]);
         $total = array_reduce($products, function ($t,$i) {$t = $t + $i->getCost(); return $t;}, 0);
-        return $this->render(':order:basket.html.twig', ['products' => $products, 'total' => $total]);
+        $prevData = json_decode($this->get('session')->getFlashBag()->get('order_data'), true);
+        return $this->render(
+            ':order:basket.html.twig',
+            [
+                'products' => $products,
+                'total' => $total,
+                'prev' => $prevData,
+            ]
+        );
     }
 
     /**
@@ -113,6 +121,7 @@ class OrderController extends Controller
         $products = $this->getProductsToPurchase($request->get('pid'));
         $orderData = $this->getOrderData($request->get('order'));
         if ($products == false || $orderData == false) {
+            $this->get('session')->getFlashBag()->set('order_data', json_encode($orderData));
             return new RedirectResponse('/basket');
         }
         $order = $this->createOrder($orderData, $products);

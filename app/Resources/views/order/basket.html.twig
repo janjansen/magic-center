@@ -47,19 +47,19 @@
                                                                 <div class="col-xs-6">
 
                                                                     <label class="label">Имя<span class="star">*</span></label>
-                                                                    <input class="input" type="text" name="order[fname]" maxlength="255" required>
+                                                                    <input value="{{ prev.fname ?: '' }}" class="input" type="text" name="order[fname]" maxlength="255" required>
 
                                                                     <label class="label">Фамилия<span class="star">*</span></label>
-                                                                    <input class="input" type="text" name="order[lname]" maxlength="255" required>
+                                                                    <input value="{{ prev.lname ?: '' }}"  class="input" type="text" name="order[lname]" maxlength="255" required>
 
                                                                     <label class="label">Email<span class="star">*</span></label>
-                                                                    <input class="input" type="text"  name="order[email]" maxlength="255" required>
+                                                                    <input  value="{{ prev.email ?: '' }}"  class="input" type="text"  name="order[email]" maxlength="255" required>
 
                                                                     <label class="label">Телефон<span class="star">*</span></label>
-                                                                    <input class="input" type="text"  name="order[phone]"  maxlength="15" required>
+                                                                    <input  value="{{ prev.phone ?: '' }}" class="input" type="text"  name="order[phone]"  maxlength="15" required>
 
                                                                     <label class="label">Коментарий<span class="star">*</span></label>
-                                                                    <textarea class="textarea"  name="order[comment]"></textarea>
+                                                                    <textarea  value="{{ prev.comment ?: '' }}" class="textarea"  name="order[comment]"></textarea>
                                                                     {% set errors = app.session.flashbag.get('order_error')  %}
                                                                     {% if errors is not empty %}
                                                                         {% for e in errors %}
@@ -71,21 +71,21 @@
                                                                 <div class="col-xs-6">
 
                                                                     <label class="label">Адрес<span class="star">*</span></label>
-                                                                    <textarea class="textarea"  name="order[address]"></textarea>
+                                                                    <textarea  value="{{ prev.address ?: '' }}" class="textarea"  name="order[address]"></textarea>
 
                                                                     <div class="rows">
                                                                         <div class="col-xs-6">
                                                                             <label class="label">Город<span class="star">*</span></label>
-                                                                            <input class="input" type="text"  name="order[city]" maxlength="255" required>
+                                                                            <input  value="{{ prev.city ?: '' }}" class="input" type="text"  name="order[city]" maxlength="255" required>
                                                                         </div>
                                                                         <div class="col-xs-6">
                                                                             <label class="label">Почтовый индекс<span class="star">*</span></label>
-                                                                            <input class="input" type="text"  name="order[pindex]" maxlength="255" required>
+                                                                            <input  value="{{ prev.pindex ?: '' }}" class="input" type="text"  name="order[pindex]" maxlength="255" required>
                                                                         </div>
                                                                     </div>
 
                                                                     <label class="label">Страна<span class="star">*</span></label>
-                                                                    <input class="input" type="text"  name="order[country]" maxlength="255" required>
+                                                                    <input  value="{{ prev.country ?: '' }}" class="input" type="text"  name="order[country]" maxlength="255" required>
 
                                                                     <input class="btn-submit" type="submit" value="Подтвердить заказ">
                                                                     <div class="form_bottom">

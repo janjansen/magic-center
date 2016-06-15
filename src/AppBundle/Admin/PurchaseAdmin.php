@@ -2,6 +2,7 @@
 
 namespace AppBundle\Admin;
 
+use AppBundle\Entity\LessonRequest;
 use AppBundle\Entity\Purchase;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -19,10 +20,13 @@ class PurchaseAdmin extends BaseAdmin
     {
         $datagridMapper
             ->add('id')
-            ->add('status')
-            ->add('deliveryAt')
-            ->add('user.id')
-            ->add('phone')
+            ->add('phone', null, ['label' => 'Телефон'])
+            ->add('lname', null, ['label' => 'Фамилия'])
+            ->add('fname', null, ['label' => 'Имя'])
+            ->add('email', null, ['label' => 'Email'])
+            ->add('city', null, ['label' => 'Город'])
+            ->add('deliveryAt', null, ['label' => 'Дата доставки'])
+            ->add('status', 'doctrine_orm_number', ['label' => 'Статус'], 'choice', ['choices' => array_flip(Purchase::getStatusesForAdminView())])
         ;
     }
 
@@ -33,9 +37,14 @@ class PurchaseAdmin extends BaseAdmin
     {
         $listMapper
             ->add('id')
-            ->add('status')
-            ->add('phone')
-            ->add('deliveryAt')
+            ->add('getStatusRusName', null, ['label' => 'Статус'])
+            ->add('phone', null, ['label' => 'Телефон'])
+            ->add('lname', null, ['label' => 'Фамилия'])
+            ->add('fname', null, ['label' => 'Имя'])
+            ->add('email', null, ['label' => 'Email'])
+            ->add('city', null, ['label' => 'Город'])
+            ->add('country', null, ['label' => 'Страна'])
+            ->add('deliveryAt', null, ['label' => 'Дата доставки'])
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'details' => array('template' => 'admin/btns/show_details_btn.html.twig'),
@@ -52,25 +61,17 @@ class PurchaseAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('phone')
-            ->add('address')
-            ->add('deliveryAt', 'sonata_type_datetime_picker', ['format' => 'yyyy-MM-dd HH:mm'])
+            ->add('phone', null, ['label' => 'Телефон'])
+            ->add('lname', null, ['label' => 'Фамилия'])
+            ->add('fname', null, ['label' => 'Имя'])
+            ->add('email', null, ['label' => 'Email'])
+            ->add('city', null, ['label' => 'Город'])
+            ->add('pindex', null, ['label' => 'Индекс'])
+            ->add('country', null, ['label' => 'Страна'])
+            ->add('comment', null, ['label' => 'Комментарий'])
+            ->add('address', null, ['label' => 'Адрес'])
+            ->add('deliveryAt', 'sonata_type_datetime_picker', ['format' => 'yyyy-MM-dd HH:mm', 'required' => false])
             ->add('status', 'choice', ['choices' => array_flip(Purchase::getStatusesForAdminView())])
-        ;
-    }
-
-    /**
-     * @param ShowMapper $showMapper
-     */
-    protected function configureShowFields(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->add('id')
-            ->add('status')
-            ->add('deliveryAt')
-            ->add('phone')
-            ->add('address')
-            ->add('purchaseProducts')
         ;
     }
 

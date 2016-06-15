@@ -26,7 +26,7 @@ class PurchaseAdmin extends BaseAdmin
             ->add('email', null, ['label' => 'Email'])
             ->add('city', null, ['label' => 'Город'])
             ->add('deliveryAt', null, ['label' => 'Дата доставки'])
-            ->add('status', 'doctrine_orm_number', ['label' => 'Статус'], 'choice', ['choices' => array_flip(Purchase::getStatusesForAdminView())])
+            ->add('status', 'doctrine_orm_string', ['label' => 'Статус'], 'choice', ['choices' => array_flip(Purchase::getStatusesForAdminView())])
         ;
     }
 

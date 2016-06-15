@@ -25,8 +25,40 @@
       <file leaf-file-name="ProductController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ProductController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-786">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="248">
+              <caret line="55" column="24" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PurchaseAdmin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Admin/PurchaseAdmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
+              <folding>
+                <element signature="e#35#70#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LessonRequestAdmin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Admin/LessonRequestAdmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Purchase.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Purchase.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1033">
+              <caret line="196" column="16" selection-start-line="196" selection-start-column="16" selection-end-line="196" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -124,13 +156,13 @@
         <option value="$PROJECT_DIR$/app/Resources/views/admin/purchase_details.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/LessonRequest.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Admin/LessonAdmin.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Admin/LessonRequestAdmin.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Admin/PurchaseAdmin.php" />
         <option value="$PROJECT_DIR$/web/js/basket.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/product/category_list.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/product/by_category.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/order/basket.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/OrderController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Admin/PurchaseAdmin.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Admin/LessonRequestAdmin.php" />
       </list>
     </option>
   </component>
@@ -358,7 +390,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="base&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/base.html.twig&#10;base.&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/base.html.twig&#10;basket.js&#9;FILE&#9;file://X:/www/magic-center/web/js/basket.js&#10;Less&#9;FILE&#9;file://X:/www/magic-center/src/AppBundle/Admin/LessonRequestAdmin.php&#10;Pur&#9;null&#9;null&#10;basket&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/order/basket.html.twig&#10;Ema&#9;FILE&#9;file://X:/www/magic-center/src/AppBundle/Controller/EmailController.php&#10;Lesson&#9;null&#9;null&#10;Product&#9;FILE&#9;file://X:/www/magic-center/src/AppBundle/Entity/Product.php&#10;BaseA&#9;null&#9;null&#10;ProductA&#9;FILE&#9;file://X:/www/magic-center/src/AppBundle/Admin/ProductAdmin.php&#10;app&#9;FILE&#9;file://Z:/www/magic-center/app/Resources/views/default/appointment.html.twig&#10;para&#9;FILE&#9;file://Z:/www/magic-center/app/config/parameters.yml&#10;Product.php&#9;FILE&#9;file://Z:/www/magic-center/src/AppBundle/Entity/Product.php&#10;Prod&#9;FILE&#9;file://Z:/www/magic-center/src/AppBundle/Admin/ProductAdmin.php&#10;producti&#9;null&#9;null&#10;La&#9;FILE&#9;file://Z:/www/magic-center/src/AppBundle/Admin/LessonRequestAdmin.php&#10;inde&#9;FILE&#9;file://Z:/www/magic-center/app/Resources/views/default/index.html.twig&#10;go_&#9;FILE&#9;file://Z:/www/magic-center/app/Resources/views/order/go_to_payment.html.twig&#10;go_t&#9;FILE&#9;file://Z:/www/magic-center/app/Resources/views/lesson/go_to_payment.html.twig&#10;ba&#9;FILE&#9;file://Z:/www/magic-center/app/Resources/views/order/basket.html.twig&#10;Email&#9;FILE&#9;file://Z:/www/magic-center/src/AppBundle/Controller/EmailController.php&#10;list&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/product/category_list.html.twig&#10;by&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/product/by_category.html.twig&#10;conta&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/default/contacts.html.twig&#10;appoi&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/default/appointment.html.twig&#10;parame&#9;FILE&#9;file://X:/www/magic-center/app/config/parameters.yml&#10;request.&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/lesson/request.html.twig&#10;bas&#9;FILE&#9;file://Z:/www/magic-center/app/Resources/views/order/basket.html.twig&#10;go_to_payment&#9;FILE&#9;file://Z:/www/magic-center/app/Resources/views/order/go_to_payment.html.twig&#10;Pro&#9;FILE&#9;file://Z:/www/magic-center/src/AppBundle/Entity/Product.php&#10;Pu&#9;FILE&#9;file://Z:/www/magic-center/src/AppBundle/Entity/Purchase.php&#10;pa&#9;FILE&#9;file://Z:/www/magic-center/app/config/parameters.yml&#10;ProductCa&#9;null&#9;null&#10;by_category&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/product/by_category.html.twig&#10;PurchaseProduct&#9;null&#9;null&#10;Purchase&#9;FILE&#9;file:///home/roman/www/magic/src/AppBundle/Entity/Purchase.php&#10;User&#9;FILE&#9;file:///home/roman/www/magic/src/AppBundle/Entity/User.php&#10;LessonA&#9;FILE&#9;file:///home/roman/www/magic/src/AppBundle/Admin/UserLessonAdmin.php&#10;UserLe&#9;FILE&#9;file:///home/roman/www/magic/src/AppBundle/Entity/UserLesson.php&#10;Produ&#9;FILE&#9;file:///home/roman/www/magic/src/AppBundle/Entity/ProductImage.php&#10;Us&#9;FILE&#9;file:///home/roman/www/magic/src/AppBundle/Entity/User.php&#10;AppK&#9;FILE&#9;file:///home/roman/www/magic/app/AppKernel.php&#10;AppKe&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="Less&#9;FILE&#9;file://X:/www/magic-center/src/AppBundle/Admin/LessonRequestAdmin.php&#10;Pur&#9;FILE&#9;file://X:/www/magic-center/src/AppBundle/Entity/Purchase.php&#10;base&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/base.html.twig&#10;base.&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/base.html.twig&#10;basket.js&#9;FILE&#9;file://X:/www/magic-center/web/js/basket.js&#10;basket&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/order/basket.html.twig&#10;Ema&#9;FILE&#9;file://X:/www/magic-center/src/AppBundle/Controller/EmailController.php&#10;Lesson&#9;null&#9;null&#10;Product&#9;FILE&#9;file://X:/www/magic-center/src/AppBundle/Entity/Product.php&#10;BaseA&#9;null&#9;null&#10;ProductA&#9;FILE&#9;file://X:/www/magic-center/src/AppBundle/Admin/ProductAdmin.php&#10;app&#9;FILE&#9;file://Z:/www/magic-center/app/Resources/views/default/appointment.html.twig&#10;para&#9;FILE&#9;file://Z:/www/magic-center/app/config/parameters.yml&#10;Product.php&#9;FILE&#9;file://Z:/www/magic-center/src/AppBundle/Entity/Product.php&#10;Prod&#9;FILE&#9;file://Z:/www/magic-center/src/AppBundle/Admin/ProductAdmin.php&#10;producti&#9;null&#9;null&#10;La&#9;FILE&#9;file://Z:/www/magic-center/src/AppBundle/Admin/LessonRequestAdmin.php&#10;inde&#9;FILE&#9;file://Z:/www/magic-center/app/Resources/views/default/index.html.twig&#10;go_&#9;FILE&#9;file://Z:/www/magic-center/app/Resources/views/order/go_to_payment.html.twig&#10;go_t&#9;FILE&#9;file://Z:/www/magic-center/app/Resources/views/lesson/go_to_payment.html.twig&#10;ba&#9;FILE&#9;file://Z:/www/magic-center/app/Resources/views/order/basket.html.twig&#10;Email&#9;FILE&#9;file://Z:/www/magic-center/src/AppBundle/Controller/EmailController.php&#10;list&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/product/category_list.html.twig&#10;by&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/product/by_category.html.twig&#10;conta&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/default/contacts.html.twig&#10;appoi&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/default/appointment.html.twig&#10;parame&#9;FILE&#9;file://X:/www/magic-center/app/config/parameters.yml&#10;request.&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/lesson/request.html.twig&#10;bas&#9;FILE&#9;file://Z:/www/magic-center/app/Resources/views/order/basket.html.twig&#10;go_to_payment&#9;FILE&#9;file://Z:/www/magic-center/app/Resources/views/order/go_to_payment.html.twig&#10;Pro&#9;FILE&#9;file://Z:/www/magic-center/src/AppBundle/Entity/Product.php&#10;Pu&#9;FILE&#9;file://Z:/www/magic-center/src/AppBundle/Entity/Purchase.php&#10;pa&#9;FILE&#9;file://Z:/www/magic-center/app/config/parameters.yml&#10;ProductCa&#9;null&#9;null&#10;by_category&#9;FILE&#9;file://X:/www/magic-center/app/Resources/views/product/by_category.html.twig&#10;PurchaseProduct&#9;null&#9;null&#10;Purchase&#9;FILE&#9;file:///home/roman/www/magic/src/AppBundle/Entity/Purchase.php&#10;User&#9;FILE&#9;file:///home/roman/www/magic/src/AppBundle/Entity/User.php&#10;LessonA&#9;FILE&#9;file:///home/roman/www/magic/src/AppBundle/Admin/UserLessonAdmin.php&#10;UserLe&#9;FILE&#9;file:///home/roman/www/magic/src/AppBundle/Entity/UserLesson.php&#10;Produ&#9;FILE&#9;file:///home/roman/www/magic/src/AppBundle/Entity/ProductImage.php&#10;Us&#9;FILE&#9;file:///home/roman/www/magic/src/AppBundle/Entity/User.php&#10;AppK&#9;FILE&#9;file:///home/roman/www/magic/app/AppKernel.php&#10;AppKe&#9;null&#9;null" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../partner/sberbank-partner" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
@@ -434,15 +466,15 @@
       <workItem from="1466010428617" duration="6874000" />
       <workItem from="1466060850639" duration="3026000" />
       <workItem from="1466065638910" duration="2000" />
-      <workItem from="1466065674183" duration="7844000" />
+      <workItem from="1466065674183" duration="8646000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57652000" />
+    <option name="totallyTimeSpent" value="58454000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1934" height="1047" extended-state="1" />
+    <frame x="-7" y="0" width="1934" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16061899" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -766,32 +798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Admin/LessonRequestAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="26" column="152" selection-start-line="26" selection-start-column="152" selection-end-line="26" selection-end-column="152" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Admin/PurchaseAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="28" column="131" selection-start-line="28" selection-start-column="131" selection-end-line="28" selection-end-column="131" />
-          <folding>
-            <element signature="e#35#70#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Purchase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5588">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/basket.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -824,14 +830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Session/Flash/FlashBagInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/order/basket.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -848,10 +846,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Purchase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1033">
+          <caret line="196" column="16" selection-start-line="196" selection-start-column="16" selection-end-line="196" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Session/Flash/FlashBagInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Admin/PurchaseAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
+          <folding>
+            <element signature="e#35#70#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Admin/LessonRequestAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-786">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="248">
+          <caret line="55" column="24" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
           <folding />
         </state>
       </provider>

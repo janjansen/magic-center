@@ -24,7 +24,7 @@ class LessonRequestAdmin extends Admin
             ->add('email')
             ->add('city', null, ['label' => 'Город'])
             ->add('phone', null, ['label' => 'Телефон'])
-            ->add('status', 'doctrine_orm_number', ['label' => 'Статус'], 'choice', ['choices' => array_flip(LessonRequest::getStatusesForAdminView())])
+            ->add('status', 'doctrine_orm_string', ['label' => 'Статус'], 'choice', ['choices' => array_flip(LessonRequest::getStatusesForAdminView())])
         ;
     }
 

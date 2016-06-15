@@ -18,9 +18,9 @@ class NewsAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('title')
-            ->add('text')
-            ->add('isHidden', 'doctrine_orm_number', [], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
+            ->add('title', null, ['label' => 'Заголовок'])
+            ->add('text', null, ['label' => 'Текст'])
+            ->add('isHidden', 'doctrine_orm_number', ['label' => 'Скрыт'], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
         ;
     }
 
@@ -31,9 +31,9 @@ class NewsAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('title')
-            ->add('text')
-            ->add('isHidden', 'boolean')
+            ->add('title', null, ['label' => 'Заголовок'])
+            ->add('text', null, ['label' => 'Текст'])
+            ->add('isHidden', 'boolean', ['label' => 'Скрыт'])
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -50,27 +50,15 @@ class NewsAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('title')
-            ->add('text')
-            ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
-        ;
-    }
-
-    /**
-     * @param ShowMapper $showMapper
-     */
-    protected function configureShowFields(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->add('id')
-            ->add('title')
-            ->add('text')
-            ->add('isHidden')
+            ->add('title', null, ['label' => 'Заголовок'])
+            ->add('text', null, ['label' => 'Текст'])
+            ->add('isHidden', 'choice', ['label' => 'Скрыт','choices' => ['No'=>0, "Yes"=>1]])
         ;
     }
 
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->remove('show');
+        $collection->remove('export');
     }
 }

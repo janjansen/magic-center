@@ -19,12 +19,12 @@ class LessonRequestAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('filename')
-            ->add('name')
+//            ->add('filename')
+            ->add('name', null, ['label' => 'Имя'])
             ->add('email')
-            ->add('city')
-            ->add('phone')
-            ->add('status')
+            ->add('city', null, ['label' => 'Город'])
+            ->add('phone', null, ['label' => 'Телефон'])
+            ->add('status', null, ['label' => 'Статус'])
         ;
     }
 
@@ -36,11 +36,11 @@ class LessonRequestAdmin extends Admin
         $listMapper
             ->add('id')
 //            ->add('filename')
-            ->add('name')
+            ->add('name', null, ['label' => 'Имя'])
             ->add('email')
-            ->add('city')
-            ->add('phone')
-            ->add('status')
+            ->add('city', null, ['label' => 'Город'])
+            ->add('phone', null, ['label' => 'Телефон'])
+            ->add('status', null, ['label' => 'Статус'])
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -66,32 +66,18 @@ class LessonRequestAdmin extends Admin
         $formMapper
 //            ->add('id')
             ->add('file', 'file', $options)
-            ->add('name')
+            ->add('name', null, ['label' => 'Имя'])
             ->add('email')
-            ->add('city')
-            ->add('phone')
-            ->add('status', 'choice', ['choices' => array_flip(LessonRequest::getStatusesForAdminView())])
-        ;
-    }
-
-    /**
-     * @param ShowMapper $showMapper
-     */
-    protected function configureShowFields(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->add('id')
-            ->add('filename')
-            ->add('name')
-            ->add('email')
-            ->add('city')
-            ->add('phone')
-            ->add('status')
+            ->add('city', null, ['label' => 'Город'])
+            ->add('phone', null, ['label' => 'Телефон'])
+            ->add('status', 'choice', ['label' => 'Статус','choices' => array_flip(LessonRequest::getStatusesForAdminView())])
         ;
     }
 
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->remove('show');
+        $collection->remove('delete');
+        $collection->remove('export');
     }
 }

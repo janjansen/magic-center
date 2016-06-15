@@ -18,10 +18,10 @@ class ProductAdmin extends BaseAdmin
     {
         $datagridMapper
             ->add('id')
-            ->add('name')
-            ->add('cost')
-            ->add('category')
-            ->add('isHidden', 'doctrine_orm_number', [], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
+            ->add('name', null, ['label' => 'Название'])
+            ->add('cost', null, ['label' => 'Цена'])
+            ->add('category', null, ['label' => 'Категория товара'])
+            ->add('isHidden', 'doctrine_orm_number', [], 'choice', ['label' => 'Скрыт','choices' => ['No'=>0, "Yes"=>1]])
         ;
     }
 
@@ -32,9 +32,9 @@ class ProductAdmin extends BaseAdmin
     {
         $listMapper
             ->add('id')
-            ->add('name')
-            ->add('cost')
-            ->add('category')
+            ->add('name', null, ['label' => 'Название'])
+            ->add('cost', null, ['label' => 'Цена'])
+            ->add('category', null, ['label' => 'Категория товара'])
             ->add('reservedTill', null, ['label' => 'Зарезервирован до'])
             ->add('isHidden', 'boolean', ['label' => 'Скрыт'])
             ->add('checkIsVisiable', 'boolean', ['label' => 'Отбражается на сайте?'])
@@ -55,26 +55,12 @@ class ProductAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name')
-            ->add('cost')
-            ->add('description')
+            ->add('name', null, ['label' => 'Название'])
+            ->add('cost', null, ['label' => 'Цена'])
+            ->add('description', null, ['label' => 'Описание'])
             ->add('reservedTill', 'sonata_type_datetime_picker', ['label' => 'Зарезервирован до','format' => 'yyyy-MM-dd HH:mm', 'required' => false])
-            ->add('category')
+            ->add('category', null, ['label' => 'Категория товара'])
             ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1],'label' => 'Скрыт'])
-        ;
-    }
-
-    /**
-     * @param ShowMapper $showMapper
-     */
-    protected function configureShowFields(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->add('id')
-            ->add('name')
-            ->add('description')
-            ->add('images')
-            ->add('isHidden')
         ;
     }
 

@@ -40,6 +40,27 @@
 
                             </tr>
                             <tr class="sonata-ba-view-container">
+                                <th>Зарезервирован до</th>
+                                <td>
+                                    {{ product.reservedTill.format('d.m.Y H:s') }}
+                                </td>
+
+                            </tr>
+                            <tr class="sonata-ba-view-container">
+                                <th>Скрыт</th>
+                                <td>
+                                    {{ product.isHidden ? 'да' : 'нет' }}
+                                </td>
+
+                            </tr>
+                            <tr class="sonata-ba-view-container">
+                                <th>Отображается на сайте</th>
+                                <td>
+                                    {{ product.checkIsVisiable ? 'да' : 'нет' }}
+                                </td>
+
+                            </tr>
+                            <tr class="sonata-ba-view-container">
                                 <th></th>
                                 <td>
                                     <a href="/admin/app/product/{{ product.id }}/edit" class="btn btn-sm btn-default edit_link" title="Edit">

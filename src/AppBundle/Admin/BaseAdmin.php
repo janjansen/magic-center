@@ -17,7 +17,7 @@ use Sonata\AdminBundle\Admin\AdminInterface;
  */
 class BaseAdmin extends Admin
 {
-    const DATETIME_FORMAT = 'yyyy-MM-dd HH:mm:ss';
+    const DATETIME_FORMAT = 'd.m.Y H:s';
 
     /**
      * @return \AppBundle\Entity\Admin

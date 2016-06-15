@@ -18,10 +18,10 @@ class CommentAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('person')
+            ->add('person', null, ['label' => 'Имя'])
             ->add('email')
-            ->add('text')
-            ->add('isHidden', 'doctrine_orm_number', [], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
+            ->add('text', null, ['label' => 'Тест отзыва'])
+            ->add('isHidden', 'doctrine_orm_number', ['label' => 'Скрыт'], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
         ;
     }
 
@@ -32,10 +32,10 @@ class CommentAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('person')
+            ->add('person', null, ['label' => 'Имя'])
             ->add('email')
-            ->add('text')
-            ->add('isHidden', 'boolean')
+            ->add('text', null, ['label' => 'Тест отзыв'])
+            ->add('isHidden', 'boolean', ['label' => 'Скрыт'])
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -52,29 +52,16 @@ class CommentAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('person')
+            ->add('person', null, ['label' => 'Имя'])
             ->add('email')
-            ->add('text')
-            ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
-        ;
-    }
-
-    /**
-     * @param ShowMapper $showMapper
-     */
-    protected function configureShowFields(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->add('id')
-            ->add('person')
-            ->add('email')
-            ->add('text')
-            ->add('isHidden')
+            ->add('text', null, ['label' => 'Тест отзыв'])
+            ->add('isHidden', 'choice', ['label' => 'Скрыт','choices' => ['No'=>0, "Yes"=>1]])
         ;
     }
 
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->remove('show');
+        $collection->remove('export');
     }
 }

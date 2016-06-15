@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * @ORM\Entity(repositoryClass="AppBundle\Repository\LessonRepository")
+ * @ORM\Entity()
  * @ORM\Table(name="lesson_request")
  * @ORM\HasLifecycleCallbacks()
  */

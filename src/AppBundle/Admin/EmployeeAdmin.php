@@ -18,10 +18,9 @@ class EmployeeAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('filename')
-            ->add('name')
-            ->add('description')
-            ->add('isHidden', 'doctrine_orm_number', [], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
+            ->add('name', null, ['label' => 'Имя'])
+            ->add('description', null, ['label' => 'Описание'])
+            ->add('isHidden', 'doctrine_orm_number', ['label' => 'Скрыт'], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
         ;
     }
 
@@ -32,10 +31,10 @@ class EmployeeAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('filename')
-            ->add('name')
-            ->add('description')
-            ->add('isHidden', 'boolean')
+//            ->add('filename', null, ['label' => 'Название'])
+            ->add('name', null, ['label' => 'Имя'])
+            ->add('description', null, ['label' => 'Описание'])
+            ->add('isHidden', 'boolean', ['label' => 'Скрыт'])
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -60,24 +59,10 @@ class EmployeeAdmin extends Admin
 
         $formMapper
             ->add('file', 'file', $options)
-            ->add('name')
-            ->add('description')
-            ->add('lessons')
-            ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
-        ;
-    }
-
-    /**
-     * @param ShowMapper $showMapper
-     */
-    protected function configureShowFields(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->add('id')
-            ->add('filename')
-            ->add('name')
-            ->add('description')
-            ->add('isHidden')
+            ->add('name', null, ['label' => 'Имя'])
+            ->add('description', null, ['label' => 'Описание'])
+            ->add('lessons', null, ['label' => 'Курсы'])
+            ->add('isHidden', 'choice', ['label' => 'Скрыт','choices' => ['No'=>0, "Yes"=>1]])
         ;
     }
 

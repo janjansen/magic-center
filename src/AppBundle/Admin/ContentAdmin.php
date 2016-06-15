@@ -48,7 +48,7 @@ class ContentAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('key')
+//            ->add('key')
             ->add('content')
         ;
     }
@@ -68,5 +68,7 @@ class ContentAdmin extends Admin
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->remove('show');
+        $collection->remove('export');
+        $collection->remove('delete');
     }
 }

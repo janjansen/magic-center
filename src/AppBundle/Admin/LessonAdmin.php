@@ -18,11 +18,11 @@ class LessonAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('filename')
-            ->add('title')
-            ->add('description')
-            ->add('cost')
-            ->add('isHidden', 'doctrine_orm_number', [], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
+//            ->add('filename')
+            ->add('title', null, ['label' => 'Название'])
+            ->add('description', null, ['label' => 'Описание'])
+            ->add('cost', null, ['label' => 'Цена'])
+            ->add('isHidden', 'doctrine_orm_number', ['label' => 'Скрыт'], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
         ;
     }
 
@@ -34,10 +34,10 @@ class LessonAdmin extends Admin
         $listMapper
             ->add('id')
 //            ->add('filename')
-            ->add('title')
+            ->add('title', null, ['label' => 'Название'])
 //            ->add('description')
-            ->add('cost')
-            ->add('isHidden', 'boolean')
+            ->add('cost', null, ['label' => 'Цена'])
+            ->add('isHidden', 'boolean', ['label' => 'Скрыт'])
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -55,36 +55,25 @@ class LessonAdmin extends Admin
     {
         $lesson = $this->getSubject();
 
-        $options = ['required' => false];
+        $options = ['required' => false, 'label' => 'Изображение'];
         if ($lesson && $lesson->getWebPath()) {
             $options['help'] = '<img src="'.$lesson->getWebPath().'" class="admin-preview" />';
         }
 
         $formMapper
             ->add('file', 'file', $options)
-            ->add('title')
-            ->add('description')
-            ->add('cost')
-            ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
+            ->add('title', null, ['label' => 'Название'])
+            ->add('description', null, ['label' => 'Описание'])
+            ->add('cost', null, ['label' => 'Цена'])
+            ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1],'label' => 'Скрыт'])
 
-        ;
-    }
-
-    /**
-     * @param ShowMapper $showMapper
-     */
-    protected function configureShowFields(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->add('id')
-            ->add('title')
-            ->add('filename')
-            ->add('isHidden')
         ;
     }
 
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->remove('show');
+        $collection->remove('delete');
+        $collection->remove('export');
     }
 }

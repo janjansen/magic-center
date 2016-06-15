@@ -55,7 +55,7 @@ class PurchaseProductAdmin extends Admin
 //            ->add('cost')
 //            ->add('purchase')
 //            ->add('product')
-            ->add('status', 'choice', ['choices' => PurchaseProduct::getStatusesForAdminView()])
+//            ->add('status', 'choice', ['choices' => PurchaseProduct::getStatusesForAdminView()])
         ;
     }
 
@@ -78,5 +78,7 @@ class PurchaseProductAdmin extends Admin
         $collection->remove('delete');
         $collection->remove('create');
         $collection->remove('show');
+        $collection->remove('edit');
+        $collection->remove('list');
     }
 }

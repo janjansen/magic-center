@@ -34,15 +34,15 @@ class UserAdmin extends Admin
 //            ->add('credentialsExpired')
 //            ->add('credentialsExpireAt')
             ->add('id')
-            ->add('scoreAmount')
-            ->add('fname')
-            ->add('lname')
-            ->add('mname')
-            ->add('bday')
-            ->add('bmonth')
-            ->add('byear')
-            ->add('city')
-            ->add('phone')
+//            ->add('scoreAmount')
+//            ->add('fname')
+//            ->add('lname')
+//            ->add('mname')
+//            ->add('bday')
+//            ->add('bmonth')
+//            ->add('byear')
+//            ->add('city')
+//            ->add('phone')
         ;
     }
 
@@ -53,8 +53,8 @@ class UserAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('fname')
-            ->add('lname')
+//            ->add('fname')
+//            ->add('lname')
 //            ->add('mname')
 //            ->add('username')
 //            ->add('usernameCanonical')
@@ -77,8 +77,8 @@ class UserAdmin extends Admin
 //            ->add('bday')
 //            ->add('bmonth')
 //            ->add('byear')
-            ->add('city')
-            ->add('phone')
+//            ->add('city')
+//            ->add('phone')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -118,50 +118,15 @@ class UserAdmin extends Admin
 //            ->add('credentialsExpired')
 //            ->add('credentialsExpireAt')
             ->add('id')
-            ->add('scoreAmount')
-            ->add('fname')
-            ->add('lname')
-            ->add('mname')
-            ->add('bday')
-            ->add('bmonth')
-            ->add('byear')
-            ->add('city')
-            ->add('phone')
-        ;
-    }
-
-    /**
-     * @param ShowMapper $showMapper
-     */
-    protected function configureShowFields(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->add('username')
-            ->add('usernameCanonical')
-            ->add('email')
-            ->add('emailCanonical')
-            ->add('enabled')
-            ->add('salt')
-            ->add('password')
-            ->add('lastLogin')
-            ->add('locked')
-            ->add('expired')
-//            ->add('expiresAt')
-            ->add('confirmationToken')
-//            ->add('passwordRequestedAt')
-            ->add('roles')
-            ->add('credentialsExpired')
-//            ->add('credentialsExpireAt')
-            ->add('id')
-            ->add('scoreAmount')
-            ->add('fname')
-            ->add('lname')
-            ->add('mname')
-            ->add('bday')
-            ->add('bmonth')
-            ->add('byear')
-            ->add('city')
-            ->add('phone')
+//            ->add('scoreAmount')
+//            ->add('fname')
+//            ->add('lname')
+//            ->add('mname')
+//            ->add('bday')
+//            ->add('bmonth')
+//            ->add('byear')
+//            ->add('city')
+//            ->add('phone')
         ;
     }
 
@@ -172,5 +137,7 @@ class UserAdmin extends Admin
         $collection->add('manage_admin_roles', $this->getRouterIdParameter().'/roles');
         $collection->remove('delete');
         $collection->remove('create');
+        $collection->remove('show');
+        $collection->remove('export');
     }
 }

@@ -18,8 +18,8 @@ class ProductCategoryAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('name')
-            ->add('isHidden', 'doctrine_orm_number', [], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
+            ->add('name', null, ['label' => 'Название'])
+            ->add('isHidden', 'doctrine_orm_number', ['label' => 'Скрыт'], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
         ;
     }
 
@@ -30,8 +30,8 @@ class ProductCategoryAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('name')
-            ->add('isHidden', 'boolean')
+            ->add('name', null, ['label' => 'Название'])
+            ->add('isHidden', 'boolean', ['label' => 'Скрыт'])
             ->add('_action', 'actions', array(
                 'actions' => array(
 //                    'show' => array(),
@@ -55,21 +55,9 @@ class ProductCategoryAdmin extends Admin
         }
 
         $formMapper
-            ->add('name')
+            ->add('name', null, ['label' => 'Название'])
             ->add('file', 'file', $options)
-            ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
-        ;
-    }
-
-    /**
-     * @param ShowMapper $showMapper
-     */
-    protected function configureShowFields(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->add('id')
-            ->add('name')
-            ->add('isHidden')
+            ->add('isHidden', 'choice', ['label' => 'Скрыт','choices' => ['No'=>0, "Yes"=>1]])
         ;
     }
 
@@ -77,5 +65,6 @@ class ProductCategoryAdmin extends Admin
     {
         $collection->remove('delete');
         $collection->remove('show');
+        $collection->remove('export');
     }
 }

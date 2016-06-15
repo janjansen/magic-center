@@ -34,7 +34,7 @@ class EmailController extends Controller
         $body = $this->renderView(":parts:default_email.html.twig", ['data' => $data]);
         $this->sendEmail('Nikol.shop@bk.ru', 'Запрос с сайта nikol-magic-school.ru', $body);
 
-        $this->get('session')->getFlashBag()->set('success', 'Ваша заявка принята');
+        $this->get('session')->getFlashBag()->set('success', 'Ваше сообщение принято.');
         return new RedirectResponse('/categories');
     }
 
@@ -54,7 +54,7 @@ class EmailController extends Controller
         $body = $this->renderView(":parts:default_email.html.twig", ['data' => $data]);
         $this->sendEmail('team@nikol-magic-school.ru', 'Запрос с сайта nikol-magic-school.ru', $body);
         
-        $this->get('session')->getFlashBag()->set('success', 'Ваша заявка принята');
+        $this->get('session')->getFlashBag()->set('success', 'Ваше сообщение принято.');
         return new RedirectResponse('/contacts');
     }
 
@@ -77,7 +77,7 @@ class EmailController extends Controller
         $body = $this->renderView(":parts:default_email.html.twig", ['data' => $data]);
         $this->sendEmail('4991363551@mail.ru', 'Запрос с сайта nikol-magic-school.ru', $body);
 
-        $this->get('session')->getFlashBag()->set('success', 'Ваша заявка принята');
+        $this->get('session')->getFlashBag()->set('success', 'Ваша заявка принята.');
         return new RedirectResponse('/appointment');
     }
 
@@ -98,7 +98,7 @@ class EmailController extends Controller
         $body = $this->renderView(":parts:default_email.html.twig", ['data' => $data]);
         $this->sendEmail('info@nikol-magic-school.ru', 'Запрос с сайта nikol-magic-school.ru', $body);
 
-        $this->get('session')->getFlashBag()->set('success', 'Ваша заявка принята');
+        $this->get('session')->getFlashBag()->set('success', 'Ваше сообщение принято.');
         return new RedirectResponse('/');
     }
 

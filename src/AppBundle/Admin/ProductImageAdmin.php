@@ -18,10 +18,10 @@ class ProductImageAdmin extends BaseAdmin
     {
         $datagridMapper
             ->add('id')
-            ->add('filename')
-            ->add('product.id')
-            ->add('product')
-            ->add('isHidden', 'doctrine_orm_number', [], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
+            ->add('filename', null, ['label' => 'Имя файла'])
+            ->add('product.id', null, ['label' => 'ID товара'])
+            ->add('product', null, ['label' => 'Название товара'])
+            ->add('isHidden', 'doctrine_orm_number', ['label' => 'Скрыт'], 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
         ;
     }
 
@@ -32,10 +32,10 @@ class ProductImageAdmin extends BaseAdmin
     {
         $listMapper
             ->add('id')
-            ->add('filename')
-            ->add('product.id')
-            ->add('product')
-            ->add('isHidden', 'boolean')
+            ->add('filename', null, ['label' => 'Имя файла'])
+            ->add('product.id', null, ['label' => 'ID товара'])
+            ->add('product', null, ['label' => 'Название товара'])
+            ->add('isHidden', 'boolean', ['label' => 'Скрыт'])
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'edit' => array(),
@@ -59,26 +59,15 @@ class ProductImageAdmin extends BaseAdmin
         }
 
         $formMapper
-            ->add('product')
+            ->add('product', null, ['label' => 'Название'])
             ->add('file', 'file', $options)
-            ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
-        ;
-    }
-
-    /**
-     * @param ShowMapper $showMapper
-     */
-    protected function configureShowFields(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->add('id')
-            ->add('filename')
-            ->add('isHidden')
+            ->add('isHidden', 'choice', ['label' => 'Скрыт','choices' => ['No'=>0, "Yes"=>1]])
         ;
     }
 
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->remove('show');
+        $collection->remove('export');
     }
 }

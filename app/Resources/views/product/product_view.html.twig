@@ -1,32 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h3>{{ product.getName }}</h3>
-    <b>{{ product.getCost }}</b> руб <br>
-    <p>{{ product.getDescription }}</p>
-    {% for i in  product.getImages %}
-        <img src="{{ i.getWebPath }}">
-    {% endfor %}
-    <a style="padding: 10px; background-color: #c12e2a" class="buyBtn" id="{{ product.getId }}" href="#">купить</a>
-{% endblock %}
+    {#<h3>{{ product.getName }}</h3>#}
+    {#<b>{{ product.getCost }}</b> руб <br>#}
+    {#<p>{{ product.getDescription }}</p>#}
+    {#{% for i in  product.getImages %}#}
+        {#<img src="{{ i.getWebPath }}">#}
+    {#{% endfor %}#}
+    {#<a style="padding: 10px; background-color: #c12e2a" class="buyBtn" id="{{ product.getId }}" href="#">купить</a>#}
+{#{% endblock %}#}
 
-{% block stylesheets %}
-{% endblock %}
-{% block javascripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.0/js.cookie.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.buyBtn').on('click', function(e) {
-                $btn = $(e.target);
-                var basket = Cookies.getJSON('basket');
-                if(!basket) {
-                    basket = [];
-                }
-                basket.push($btn.attr('id'));
-                Cookies.set('basket',basket);
-                alert('добавлено в корзину');
-                window.location.href = '/basket';
-            });
-        });
-    </script>
+{#{% block stylesheets %}#}
+{#{% endblock %}#}
+{#{% block javascripts %}#}
+    {#<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.0/js.cookie.js"></script>#}
+    {#<script>#}
+        {#$(document).ready(function() {#}
+            {#$('.buyBtn').on('click', function(e) {#}
+                {#$btn = $(e.target);#}
+                {#var basket = Cookies.getJSON('basket');#}
+                {#if(!basket) {#}
+                    {#basket = [];#}
+                {#}#}
+                {#basket.push($btn.attr('id'));#}
+                {#Cookies.set('basket',basket);#}
+                {#alert('добавлено в корзину');#}
+                {#window.location.href = '/basket';#}
+            {#});#}
+        {#});#}
+    {#</script>#}
 {% endblock %}

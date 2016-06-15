@@ -82,6 +82,7 @@ class ProductAdmin extends BaseAdmin
     {
         $collection->add('details', $this->getRouterIdParameter().'/details');
         $collection->remove('delete');
+        $collection->remove('show');
     }
 
 }

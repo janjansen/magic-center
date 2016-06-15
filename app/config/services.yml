@@ -39,12 +39,6 @@ services:
         arguments: [~, AppBundle\Entity\Lesson, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Контент, label: Курсы }
-#
-#    app.admin.user_lesson:
-#        class: AppBundle\Admin\UserLessonAdmin
-#        arguments: [~, AppBundle\Entity\UserLesson, SonataAdminBundle:CRUD]
-#        tags:
-#            - { name: sonata.admin, manager_type: orm, group: Курсы, label: Купленные видео }
 
     app.admin.purchase_product:
         class: AppBundle\Admin\PurchaseProductAdmin

@@ -79,5 +79,6 @@ class PurchaseAdmin extends BaseAdmin
         $collection->add('details', $this->getRouterIdParameter().'/details');
         $collection->remove('delete');
         $collection->remove('create');
+        $collection->remove('show');
     }
 }

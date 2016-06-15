@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 
 class LessonRequestAdmin extends Admin
@@ -55,9 +56,16 @@ class LessonRequestAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        $image = $this->getSubject();
+
+        $options = ['required' => false];
+        if ($image && $image->getWebPath()) {
+            $options['help'] = '<img src="'.$image->getWebPath().'" class="admin-preview" />';
+        }
+
         $formMapper
             ->add('id')
-            ->add('filename')
+            ->add('file', 'file', $options)
             ->add('name')
             ->add('email')
             ->add('city')
@@ -80,5 +88,10 @@ class LessonRequestAdmin extends Admin
             ->add('phone')
             ->add('status')
         ;
+    }
+
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection->remove('show');
     }
 }

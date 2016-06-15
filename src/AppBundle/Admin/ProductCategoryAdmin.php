@@ -76,5 +76,6 @@ class ProductCategoryAdmin extends Admin
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->remove('delete');
+        $collection->remove('show');
     }
 }

@@ -19,18 +19,23 @@
                                 <div class="row">
                                     {% for c in  categories %}
                                         <div class="col-xs-4" align="middle" ><!-- блок одного товара -->
-
                                             <a href="/category/{{ c.getId }}" class="item_shop">
-
                                                 <div class="title_block">{{ c.getName }}</div>
-
                                                 <div class="img_shop"><img src="{{ c.getWebPath }}" alt=""/></div>
-
                                             </a>
-
                                         </div>
                                     {% endfor %}
                                 </div>
+                            </div>
+                            {% include ':parts:alerts.html.twig' %}
+                            <div class="wrap_form">
+                                <div class="title_form">Форма обратной связи</div>
+                                <form class="form" method="post" action="/email/fromShop">
+                                    <input class="input" type="text" maxlength="" name="name" placeholder="Ваше имя" required="">
+                                    <input class="input" type="text" maxlength="" name="email" placeholder="E-mail" required="">
+                                    <textarea class="textarea" name="msg" placeholder="Сообщение"></textarea>
+                                    <input class="btn-submit" type="submit" value="Отправить">
+                                </form>
                             </div>
                         </div>
                     </div>

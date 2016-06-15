@@ -31,11 +31,11 @@
                                             <label class="labelBig">Город<span class="star">*</span></label>
                                             <input class="input" type="text" name="r[city]" maxlength="255" required>
 
-                                            <input type="hidden" name="r[lid]" value="{{ lesson.id }}">
+                                            <input type="hidden" name="lid" value="{{ lesson.id }}">
 
                                             <div class="fileload">
                                                 <div class="file-load-block">
-                                                    <input name="image" type="file" id="file" class="inputFile" accept="image/*"  onchange='document.getElementById("fileName").value=this.value'/>
+                                                    <input name="photo" type="file" id="file" class="inputFile" accept="image/*"  onchange='document.getElementById("fileName").value=this.value'/>
                                                     <div class="fileLoad">
                                                         <button class="load btn-submit">Загрузить фото <sup>*</sup></button>
                                                     </div>

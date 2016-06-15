@@ -4,15 +4,8 @@
 
 
 <div class="wrapper">
-
-    <!-- <div class="wrap_main"> -->
-
     {% include 'parts/header.html.twig' %}
-
     <div class="wrap_12">
-
-
-
         <div class="wrap_content">
             {% include 'parts/menu.html.twig' %}
             <div class="main">
@@ -33,22 +26,15 @@
                                         </div>
                                     </div>
                                     <div class="row">
+                                        {% include ':parts:alerts.html.twig' %}
                                         <div class="wrap_form">
-
                                             <div class="title_form">Форма обратной связи</div>
-
-                                            <form class="form">
-
+                                            <form class="form" method="post" action="/email/fromContacts">
                                                 <input class="input" type="text" maxlength="" name="name" placeholder="Ваше имя" required="">
-
                                                 <input class="input" type="text" maxlength="" name="email" placeholder="E-mail" required="">
-
-                                                <textarea class="textarea" placeholder="Сообщение"></textarea>
-
+                                                <textarea class="textarea" placeholder="Сообщение" name="msg"></textarea>
                                                 <input class="btn-submit" type="submit" value="Отправить">
-
                                             </form>
-
                                         </div>
                                     </div>
                                 </div>

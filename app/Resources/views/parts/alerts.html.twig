@@ -1,0 +1,6 @@
+{% set success = app.session.flashbag.get('success')  %}
+{% if success is not empty %}
+    {% for alert in success %}
+        <p style="font-size: 24px">{{ alert }}</p>
+    {% endfor %}
+{% endif %}

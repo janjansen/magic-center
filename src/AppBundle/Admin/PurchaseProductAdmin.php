@@ -77,5 +77,6 @@ class PurchaseProductAdmin extends Admin
     {
         $collection->remove('delete');
         $collection->remove('create');
+        $collection->remove('show');
     }
 }

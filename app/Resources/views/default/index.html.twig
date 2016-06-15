@@ -70,6 +70,16 @@
                                 <div class="content_item">
                                     <div class="scroll-pane scroll-pane_main">
                                         {{ content.content | raw }}
+                                        {% include ':parts:alerts.html.twig' %}
+                                        <div class="wrap_form">
+                                            <div class="title_form">Форма обратной связи</div>
+                                            <form class="form" method="post" action="/email/fromMain">
+                                                <input class="input" type="text" maxlength="" name="name" placeholder="Ваше имя" required="">
+                                                <input class="input" type="text" maxlength="" name="email" placeholder="E-mail" required="">
+                                                <textarea class="textarea" placeholder="Сообщение" name="msg"></textarea>
+                                                <input class="btn-submit" type="submit" value="Отправить">
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
 

@@ -22,7 +22,7 @@
                                 <div class="col-xs-12">
                                     {% include ':parts:alerts.html.twig' %}
                                     <div class="wrapper_form">
-                                        <form class="form">
+                                        <form class="form" method="post" action="/email/fromAppointment">
                                             <input class="input" type="text" maxlength="" name="city" placeholder="Город (населенный пункт)" required="">
                                             <input class="input" type="text" maxlength="" name="name" placeholder="Ваше имя" required="">
                                             <input class="input" type="text" maxlength="" name="email" placeholder="E-mail" required="">

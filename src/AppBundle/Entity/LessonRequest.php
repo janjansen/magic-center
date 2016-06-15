@@ -305,4 +305,14 @@ class LessonRequest
     {
         return self::getStatusesForAdminView()[$this->getStatus()];
     }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
 }

@@ -1,8 +1,8 @@
 <div class="modal"  id="mm{{ p.id }}">
-    <div class="wrap_modal wr_modal2 ">
+    <div class="wrap_modal wr_modal2 "  style="width: 1000px;">
         <div class="modal2">
             <div class="tab_row">
-                <div class="col-tr col-tr1">
+                <div class="col-tr col-tr1"  style="width: 300px">
                     <div class="item_img">
                         <img src="{{ p.getMainImageWebPath }}" alt="">
                     </div>
@@ -20,8 +20,8 @@
                     {% endif %}
                 </div>
 
-                <div class="col-tr col-tr2">
-                    <h4>{{ p.name }}</h4>
+                <div class="col-tr col-tr2"  style="width: 700px">
+                    <h4 style="margin: 0 auto;">{{ p.name }}</h4>
                     <div class="descript">
                         <p>{{ p.getDescription }}</p>
                     </div>

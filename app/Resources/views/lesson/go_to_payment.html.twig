@@ -15,7 +15,7 @@
                             <div class="scroll-pane">
                                 <div class="wrap_oferta">
                                     <p>
-                                        Заявка на запить на курс номер <b>{{ r.lesson.title }}</b> на сумму {{ r.lesson.cost }} успешно создана.
+                                        Заявка номер <b>#{{ r.id }}</b> на курс "{{ r.lesson.title }}"  на сумму {{ r.lesson.cost }} руб успешно создана.
                                         Пожалуйста запишите номер вашей заявки.
                                         Для продолжения необходимо перейти к оплате
                                     </p>
@@ -26,7 +26,7 @@
                                         <input name="customerNumber" value="abc000" type="hidden"/>
                                         <input name="paymentType" value="AC" type="hidden"/>
                                         <input name="orderNumber" value="{{ r.id }}" type="hidden"/>
-                                        <input type="submit" value="Перейти к оплате"/>
+                                        <input class="btn-submit" type="submit" value="Перейти к оплате"/>
                                     </form>
                                 </div>
                             </div><!--scroll-pane-->

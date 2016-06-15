@@ -35,8 +35,9 @@ class ProductAdmin extends BaseAdmin
             ->add('name')
             ->add('cost')
             ->add('category')
-            ->add('reservedTill')
-            ->add('isHidden', 'boolean')
+            ->add('reservedTill', null, ['label' => 'Зарезервирован до'])
+            ->add('isHidden', 'boolean', ['label' => 'Скрыт'])
+            ->add('checkIsVisiable', 'boolean', ['label' => 'Отбражается на сайте?'])
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'details' => array('template' => 'admin/btns/show_details_btn.html.twig'),
@@ -57,10 +58,9 @@ class ProductAdmin extends BaseAdmin
             ->add('name')
             ->add('cost')
             ->add('description')
-            ->add('reservedTill', 'sonata_type_datetime_picker', ['format' => 'yyyy-MM-dd HH:mm', 'required' => false])
+            ->add('reservedTill', 'sonata_type_datetime_picker', ['label' => 'Зарезервирован до','format' => 'yyyy-MM-dd HH:mm', 'required' => false])
             ->add('category')
-            ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1]])
-
+            ->add('isHidden', 'choice', ['choices' => ['No'=>0, "Yes"=>1],'label' => 'Скрыт'])
         ;
     }
 

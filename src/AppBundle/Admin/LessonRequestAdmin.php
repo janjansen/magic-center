@@ -35,7 +35,7 @@ class LessonRequestAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('filename')
+//            ->add('filename')
             ->add('name')
             ->add('email')
             ->add('city')
@@ -64,7 +64,7 @@ class LessonRequestAdmin extends Admin
         }
 
         $formMapper
-            ->add('id')
+//            ->add('id')
             ->add('file', 'file', $options)
             ->add('name')
             ->add('email')

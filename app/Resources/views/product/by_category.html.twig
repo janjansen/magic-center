@@ -31,9 +31,9 @@
                                         {% if p.checkIsVisiable %}
                                             <div class="col-xs-4 -align-center">
                                                 <div class="item_shop">
+                                                    <h4 style="margin: 5px auto;">{{ p.name }}</h4>
                                                     <div class="img_shop"><img src="{{ p.getMainImageWebPath }}" alt=""/></div>
                                                     {#<a href="#mp{{ p.id }}" class="btn-less btnModal">подробнее</a>#}
-                                                    <h4>{{ p.name }}</h4>
                                                     <a href="#mm{{ p.id }}" class="btn-less btnModal{{ p.id }}">купить</a>
                                                 </div>
                                             </div>

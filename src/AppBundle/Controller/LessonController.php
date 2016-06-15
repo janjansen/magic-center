@@ -53,34 +53,34 @@ class LessonController extends Controller
     {
         $data = $this->getLessonRequestData($request->get('r'));
 
-        $lesson = $this->getDoctrine()->getRepository('AppBundle:Lesson')->find($request->get('lig'));
+        $lesson = $this->getDoctrine()->getRepository('AppBundle:Lesson')->find($request->get('lid'));
         if (!$lesson) {
             throw new HttpException(404);
         }
 
         if ($data == false) {
-            return new RedirectResponse('/initialisation/lesson/', $request->get('lid'));
+            return new RedirectResponse('/initialisation/lesson/'. $request->get('lid'));
         }
         
         $file = $request->files->get('photo');
 
         if (!$file) {
             $this->get('session')->getFlashBag()->set('lesson_request_error', 'Не загружена фотография');
-            return new RedirectResponse('/initialisation/lesson/', $request->get('lid'));
+            return new RedirectResponse('/initialisation/lesson/'.$request->get('lid'));
         }
 
         /**
          * @var $file UploadedFile
          */
 
-        if (in_array($file->getMimeType(), ['jpg' => 'image/jpeg','png' => 'image/png','gif' => 'image/gif',])) {
+        if (!in_array($file->getMimeType(), ['jpg' => 'image/jpeg','png' => 'image/png','gif' => 'image/gif',])) {
             $this->get('session')->getFlashBag()->set('lesson_request_error', 'Не корректный файл');
-            return new RedirectResponse('/initialisation/lesson/', $request->get('lid'));
+            return new RedirectResponse('/initialisation/lesson/'. $request->get('lid'));
         }
 
         $r = $this->createLessonRequest($data, $lesson, $file);
 
-        return $this->render('lesson:go_to_payment.html.twig', ['r' => $r]);
+        return $this->render('lesson/go_to_payment.html.twig', ['r' => $r]);
     }
 
     protected function createLessonRequest(array $data, Lesson $lesson, UploadedFile $file)
@@ -93,6 +93,7 @@ class LessonController extends Controller
         $r->setName($data['name']);
         $r->setPhone($data['phone']);
         $r->setFile($file);
+        $r->setStatus(LessonRequest::STATUS_CREATED);
         $r->setLesson($lesson);
 
         $em->persist($r);

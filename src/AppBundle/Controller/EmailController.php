@@ -35,7 +35,7 @@ class EmailController extends Controller
         $this->sendEmail('Nikol.shop@bk.ru', 'Запрос с сайта nikol-magic-school.ru', $body);
 
         $this->get('session')->getFlashBag()->set('success', 'Ваша заявка принята');
-        return new RedirectResponse('/shop');
+        return new RedirectResponse('/categories');
     }
 
     /**
@@ -52,7 +52,7 @@ class EmailController extends Controller
         ];
 
         $body = $this->renderView(":parts:default_email.html.twig", ['data' => $data]);
-        $this->sendEmail('Nikol.shop@bk.ru', 'Запрос с сайта nikol-magic-school.ru', $body);
+        $this->sendEmail('team@nikol-magic-school.ru', 'Запрос с сайта nikol-magic-school.ru', $body);
         
         $this->get('session')->getFlashBag()->set('success', 'Ваша заявка принята');
         return new RedirectResponse('/contacts');
@@ -104,6 +104,7 @@ class EmailController extends Controller
 
     protected function sendEmail($to, $subject, $body)
     {
+        $to = 'somkin.roman@gmail.com';
         $message = new \Swift_Message();
         $message->setFrom('robot@nikol-magic-school.ru');
         $message->setTo($to);

@@ -130,7 +130,11 @@ class OrderController extends Controller
 //        $order = $this->getDoctrine()->getRepository('AppBundle:Purchase')->find(1);
 
         $this->getDoctrine()->getEntityManager()->refresh($order);
-        return $this->render(':order:go_to_payment.html.twig', ['order' => $order]);
+        $cookie = new Cookie('basket', '');
+        $response = new Response();
+        $response->headers->setCookie($cookie);
+        $response->setContent($this->container->get('twig')->render(':order:go_to_payment.html.twig', ['order' => $order]));
+        return $response;
     }
 
     protected function getOrderData($data)

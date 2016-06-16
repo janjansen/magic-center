@@ -75,3 +75,10 @@ services:
         arguments: [~, AppBundle\Entity\LessonRequest, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Заказы, label: Завяки }
+
+    app.twig_extension:
+        class: AppBundle\Twig\AppExtension
+        arguments: ['@service_container']
+        public: false
+        tags:
+            - { name: twig.extension }

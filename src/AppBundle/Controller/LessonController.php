@@ -28,8 +28,8 @@ class LessonController extends Controller
     public function allLessonsListAction()
     {
         $lessons = $this->getDoctrine()->getRepository('AppBundle:Lesson')->findBy(['isHidden' => 0]);
-        $content = $this->getDoctrine()->getRepository('AppBundle:Content')->findOneBy(['key' => 'COURSE_POPUP']);
-        return $this->render('lesson/all_lessons.html.twig', ['lessons' => $lessons, 'content' => $content]);
+
+        return $this->render('lesson/all_lessons.html.twig', ['lessons' => $lessons]);
     }
 
     /**
@@ -38,10 +38,11 @@ class LessonController extends Controller
     public function requestAction($id)
     {
         $lesson = $this->getDoctrine()->getRepository('AppBundle:Lesson')->find($id);
+        $content = $this->getDoctrine()->getRepository('AppBundle:Content')->findOneBy(['key' => 'INITIALIZATION_PAGE']);
         if (!$lesson) {
             throw new HttpException(404);
         }
-        return $this->render('lesson/request.html.twig', ['lesson' => $lesson]);
+        return $this->render('lesson/request.html.twig', ['lesson' => $lesson,'content' => $content]);
     }
 
     /**

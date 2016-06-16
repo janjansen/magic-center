@@ -13,8 +13,11 @@
                         </div>
                         <div class="content_item content_item9">
                             <div class="scroll-pane">
-                                <p>
+                                <p style="margin-top: 10px">
                                     Для записи на курс "{{ lesson.title }}" стоимостью <b>{{ lesson.cost }}</b> руб. необходимо заполнить анкету
+                                </p>
+                                <p>
+                                    {{ content.content | raw }}
                                 </p>
                                 {% set errors = app.session.flashbag.get('lesson_request_error')  %}
                                 {% if errors is not empty %}

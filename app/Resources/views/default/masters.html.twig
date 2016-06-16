@@ -19,7 +19,7 @@
                                         <div class="img_less"><img src="{{ m.webPath }}" alt=""></div>
                                         <div class="descript">
                                             <div class="less_head"><a href="/master/{{ m.id }}">{{ m.name }}</a></div>
-                                            <div class="less_text">{{ m.description }}</div>
+                                            <div class="less_text">{{ m.description | slice(0,200) }}</div>
                                             <a href="/master/{{ m.id }}">подробнее...</a>
                                         </div>
                                     </div>

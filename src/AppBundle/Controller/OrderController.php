@@ -32,7 +32,7 @@ class OrderController extends Controller
      */
     public function addBasketAction(Request $request)
     {
-        $basket = json_decode($request->cookies->get('basket'), true);
+        $basket = explode(',',$request->cookies->get('basket'));
         $pid = $request->get('pid');
         $product = $this->getDoctrine()->getRepository('AppBundle:Product')->find($pid);
         if (!$product) {
@@ -46,7 +46,7 @@ class OrderController extends Controller
         $em->persist($product);
         $em->flush();
         $basket[] = $pid;
-        $cookie = new Cookie('basket', json_encode(array_unique($basket)));
+        $cookie = new Cookie('basket', implode(',',array_unique($basket)));
         $response = new RedirectResponse('/basket');;
         $response->headers->setCookie($cookie);
         return $response;
@@ -60,19 +60,20 @@ class OrderController extends Controller
      */
     public function showBasketAction(Request $request)
     {
-        $productIds = json_decode($request->cookies->get('basket'), true);
-        if (empty($productIds)) {
-            return $this->render(':order:basket_empty.html.twig');    
+        if (empty($request->cookies->get('basket'))) {
+            return $this->render(':order:basket_empty.html.twig');
         }
+        $productIds = explode(',',$request->cookies->get('basket'));
         $products = $this->getDoctrine()->getRepository('AppBundle:Product')->findBy(['id' => array_unique($productIds)]);
         $total = array_reduce($products, function ($t,$i) {$t = $t + $i->getCost(); return $t;}, 0);
-        $prevData = json_decode($this->get('session')->getFlashBag()->get('order_data'), true);
+
         return $this->render(
             ':order:basket.html.twig',
             [
                 'products' => $products,
                 'total' => $total,
-                'prev' => $prevData,
+                'prev' => $this->getPrevData(),
+                'basketCount' => count(explode(',', $request->cookies->get('basket'))),
             ]
         );
     }
@@ -85,7 +86,7 @@ class OrderController extends Controller
      */
     public function deleteBasketAction(Request $request)
     {
-        $basket = json_decode($request->cookies->get('basket'), true);
+        $basket = explode(',',$request->cookies->get('basket'));
         $pid = $request->get('pid');
         $product = $this->getDoctrine()->getRepository('AppBundle:Product')->find($pid);
         if (!$product) {
@@ -104,7 +105,7 @@ class OrderController extends Controller
                 $nb[] = $v;
             }
         }
-        $cookie = new Cookie('basket', json_encode(array_unique($nb)));
+        $cookie = new Cookie('basket', implode(',',array_unique($nb)));
         $response = new RedirectResponse('/basket');;
         $response->headers->setCookie($cookie);
         return $response;
@@ -121,7 +122,7 @@ class OrderController extends Controller
         $products = $this->getProductsToPurchase($request->get('pid'));
         $orderData = $this->getOrderData($request->get('order'));
         if ($products == false || $orderData == false) {
-            $this->get('session')->getFlashBag()->set('order_data', json_encode($orderData));
+            $this->get('session')->getFlashBag()->set('order_data', json_encode($request->get('order')));
             return new RedirectResponse('/basket');
         }
         $order = $this->createOrder($orderData, $products);
@@ -228,5 +229,15 @@ class OrderController extends Controller
         }
 
         return $result;
+    }
+
+    protected function getPrevData()
+    {
+        $flashes = $this->get('session')->getFlashBag()->get('order_data');
+        $prevData = isset($flashes[0]) ? json_decode($flashes[0], true) : [];
+        return  array_merge(
+            ['fname' => '','lname' => '', 'phone' => '', 'city' => '', 'email' => '', 'address' => '', 'comment' => '', 'pindex' => '', 'country' => ''],
+            $prevData ?: []
+        );
     }
 }

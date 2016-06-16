@@ -21,7 +21,7 @@ class ProductAdmin extends BaseAdmin
             ->add('name', null, ['label' => 'Название'])
             ->add('cost', null, ['label' => 'Цена'])
             ->add('category', null, ['label' => 'Категория товара'])
-            ->add('isHidden', 'doctrine_orm_number', [], 'choice', ['label' => 'Скрыт','choices' => ['No'=>0, "Yes"=>1]])
+            ->add('isHidden', 'doctrine_orm_number', ['label' => 'Скрыт'], 'choice', ['label' => 'Скрыт','choices' => ['No'=>0, "Yes"=>1]])
         ;
     }
 

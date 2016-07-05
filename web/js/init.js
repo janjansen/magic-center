@@ -73,4 +73,12 @@ $(document).ready(function(){
         padding: 0,
         fitToView:false
     });
+
+    $("a.fancy").fancybox({
+        'transitionIn'	:	'elastic',
+        'transitionOut'	:	'elastic',
+        'speedIn'		:	600,
+        'speedOut'		:	200,
+        'overlayShow'	:	false
+    })
  });

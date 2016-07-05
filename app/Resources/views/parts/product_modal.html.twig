@@ -23,7 +23,7 @@
                 <div class="col-tr col-tr2"  style="width: 650px">
                     <h4 style="margin: 0 auto;">{{ p.name }}</h4>
                     <div class="descript">
-                        <p>{{ p.getDescription }}</p>
+                        <p>{{ p.getDescription | raw }}</p>
                     </div>
 
                     <div class="wrap_modal_btn clearfix">

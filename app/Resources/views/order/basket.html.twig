@@ -37,7 +37,7 @@
 
                                                 <div class="title_f_bott">
                                                     <div class="title_f2">Оформление заказа.</div>
-                                                    <p>В поле «Коментарий» укажите желаемый способ:</p>
+                                                    <p>В поле «Коментарий» укажите желаемый способ доставки:</p>
                                                     <p>1.Почта России от 300р., Самовывоз по Москве бесплатно<span class="star">*</span></p>
                                                 </div><!--title_f_bott-->
                                                 <div class="row">
@@ -63,7 +63,7 @@
                                                                     {% set errors = app.session.flashbag.get('order_error')  %}
                                                                     {% if errors is not empty %}
                                                                         {% for e in errors %}
-                                                                            <p style="color: red; font-size: 24px">{{ e }}</p>
+                                                                            <p style="color: red; font-size: 19px">{{ e }}</p>
                                                                         {% endfor %}
                                                                     {% endif %}
 

@@ -70,7 +70,7 @@ html, body {
 
 }
 .body{
-    font-family: 'Vera Crouz';
+    font-family: 'Georgia';
 
     background-image: url("../images/fon_syte.jpg");
 
@@ -183,7 +183,7 @@ p{
 
     font-size: 44px;
 
-    line-height: 40px;
+    line-height: 25px;
 
     margin: 0px 0 15px 0;
 
@@ -256,7 +256,6 @@ p{
     padding: 25px 25px;
 
     line-height: 40px;
-
 }
 
 
@@ -285,7 +284,7 @@ p{
 
 .text_banner{
 
-    font-size: 35px;
+    font-size: 22px;
 
     line-height: 38px;
 
@@ -591,11 +590,13 @@ p{
 
     padding: 40px 0 30px 0;
 
-    font-size: 38px;
+    font-size: 17px;
 
     border-radius: 35px;
 
     background: rgba(255, 255, 255, 0.4);
+	
+	font-family: 'Georgia';
 
 }
 
@@ -870,9 +871,11 @@ p{
 
     color: #000;
 
-    font-size: 44px;
+    font-size: 19px;
+	
+	font-family: 'Trebuchet MS';
 
-    line-height: 40px;
+    line-height: 17px;
 
     margin: 0px 0 15px 0;
 
@@ -956,7 +959,7 @@ p{
 
     color: #2b6075;
 
-    font-size: 38px;
+    font-size: 23px;
 
     font-weight: bold;
 
@@ -972,7 +975,7 @@ p{
 
     color: #2b6075;
 
-    font-size: 28px;
+    font-size: 18px;
 
     height: 42px;
 
@@ -1127,7 +1130,7 @@ p{
 
     text-align: center;
 
-    font-size: 22px;
+    font-size: 18px;
 
     line-height: 24px;
 
@@ -1161,7 +1164,7 @@ p{
 
     color: #2b6075;
 
-    font-size: 28px;
+    font-size: 17px;
 
     border-radius: 30px;
 
@@ -1343,7 +1346,7 @@ p{
 
 .basket_full{
 
-    font-size: 27px;
+    font-size: 19px;
 
     text-align: right;
 
@@ -1640,7 +1643,7 @@ p{
 
     color: #387081;
 
-    font-size: 38px;
+    font-size: 29px;
 
     line-height: 42px;
 
@@ -1680,7 +1683,7 @@ p{
 
     text-align: center;
 
-    font-size: 33px;
+    font-size: 25x;
 
     line-height: 35px;
 
@@ -1724,7 +1727,7 @@ p{
 
     padding: 15px;
 
-    margin-top: 100px;
+    margin-top: 30px;
 
 }
 
@@ -1760,21 +1763,27 @@ p{
 
 .less_head{
 
-    font-size: 38px;
+    font-size: 32px;
 
     font-weight: bold;
 
     line-height: 40px;
 
     margin-bottom: 5px;
+	
+	font-family: 'Trebuchet MS';
+	
+	color: #fff;
+	
+	text-shadow: 3px 3px 4px #5b656b;
 
 }
 
 .less_text{
 
-    font-size: 33px;
+    font-size: 18px;
 
-    line-height: 35px;
+    line-height: 28px;
 
 }
 
@@ -1861,11 +1870,11 @@ p{
 
     padding: 1px 30px;
 
-    min-width: 145px;
+    min-width: 140px;
 
-    font-size: 38px;
+    font-size: 18px;
 
-    line-height: 40px;
+    line-height: 35px;
 
     color: #255d72;
 
@@ -1955,7 +1964,7 @@ p{
 
 .title_kurs{
 
-    font-size: 33px;
+    font-size: 25px;
 
     font-weight: bold;
 
@@ -1964,14 +1973,18 @@ p{
     color: #2e6373;
 
     margin: 0 0 25px 0;
+	
+    font-family: 'Georgia';
 
 }
 
 .wrap_kurs p{
 
-    font-size: 30px;
+    font-size: 18px;
 
-    line-height: 30px;
+    line-height: 22px;
+	
+	font-family: 'Georgia';
 
 }
 
@@ -1999,8 +2012,9 @@ p{
 
 .wrap_ab_master p, .wrap_ab_master {
 
-    font-size: 33px;
-
+    font-size: 16.4px;
+    font-family: 'Trebuchet MS';
+	
 }
 
 
@@ -2011,7 +2025,7 @@ p{
     outline: none;
 }
 .wrap_modal{
-    font-size: 40px;
+    font-size: 25px;
     border-radius: 35px;
     background: rgba(255, 255, 255, 0.7);
     width: 650px;
@@ -2027,7 +2041,7 @@ p{
 }
 .title_f2 {
     color: #ff0000;
-    font-size: 35px;
+    font-size: 25px;
     margin: 0 0 15px 0;
 }
 .title_f_bott{
@@ -2035,9 +2049,10 @@ p{
 }
 .title_f_bott p{
     color: #000;
-    font-size: 27px;
-    line-height: 25px;
+    font-size: 18px;
+    line-height: 20px;
     margin-bottom: 0px;
+	font-family: 'Georgia';
 }
 .star{
      color: #ff0000;
@@ -2045,9 +2060,9 @@ p{
       margin: 0 5px 0 5px;
 }
 .label{
-    font-size: 22px;
+    font-size: 17px;
     display: block;
-    line-height: 22px;
+    line-height: 20px;
 }
 .rows .col-xs-6:last-child{
     padding: 0 0 0 5px;
@@ -2095,7 +2110,7 @@ p{
 }
 .title_basket, .totl_basket {
     color: #ff0000;
-    font-size: 32px;
+    font-size: 23px;
     margin: 0 0 0 0;
 }
 .totl_basket span{
@@ -2127,14 +2142,14 @@ p{
 
 .name_t,.basket_cost{
    color: #000;
-    font-size: 27px;
+    font-size: 17px;
     line-height: 25px;
     max-width: 40%;
 }
 .basket_g {
    color: #ff0000;
    max-width: 15%;
-   font-size: 15px;
+   font-size: 18px;
    line-height: 15px;
    font-family: Arial,sans-serif;
 }
@@ -2226,7 +2241,7 @@ p{
     padding: 6px 15px 6px 15px;
     width: 210px;
     max-width: 100%;
-    font-size: 30px;
+    font-size: 15px;
     line-height: 31px;
 }
 .item_img  img{
@@ -2273,12 +2288,13 @@ p{
 }
 
 .descript, .descript p{
-    font-size: 30px;
+    font-size: 18px;
+    font-family: 'Georgia';
 }
 
 .total_modal {
     color: #1d6277;
-    font-size: 33px;
+    font-size: 20px;
 }
 
 .form_ans{
@@ -2287,9 +2303,9 @@ p{
 }
 
 .form_ans .input, .form_ans .textarea {
-    color: #000;
-    margin: 0 auto 25px auto;
-    font-size: 33px;
+    color: #2b6075;
+    margin: 0 auto 5px auto;
+    font-size: 18px;
     height: 70px;
     width: 100%;
     border-radius: 40px;
@@ -2302,12 +2318,12 @@ p{
 .form_ans .btn-submit {
     color: #000;
     float: right;
-    line-height: 45px;
-    font-size: 41px;
+    line-height: 40px;
+    font-size: 17px;
     border-radius: 30px;
-    height: 60px;
+    height: 45px;
     margin: 10px 0 0 0;
-    width: 300px;
+    width: 170px;
     cursor: pointer;
 }
 

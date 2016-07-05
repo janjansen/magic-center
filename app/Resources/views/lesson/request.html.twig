@@ -13,16 +13,16 @@
                         </div>
                         <div class="content_item content_item9">
                             <div class="scroll-pane">
-                                <p style="margin-top: 10px">
-                                    Для записи на курс "{{ lesson.title }}" стоимостью <b>{{ lesson.cost }}</b> руб. необходимо заполнить анкету
-                                </p>
+                                <p style="margin-top: 10px"><center>
+                                    Для записи на курс {{ lesson.title }} стоимостью <b>{{ lesson.cost }}</b> руб. необходимо заполнить анкету
+                                </center></p>
                                 <p>
                                     {{ content.content | raw }}
                                 </p>
                                 {% set errors = app.session.flashbag.get('lesson_request_error')  %}
                                 {% if errors is not empty %}
                                     {% for e in errors %}
-                                        <p style="color: red; font-size: 24px">{{ e }}</p>
+                                        <center><p style="color: red; font-size: 20px">{{ e }}</p></center>
                                     {% endfor %}
                                 {% endif %}
                                 <div class="form_ans">

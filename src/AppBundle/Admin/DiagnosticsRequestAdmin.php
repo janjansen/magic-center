@@ -90,7 +90,7 @@ class DiagnosticsRequestAdmin extends Admin
             ->add('answer6', null, ['label' => 'ответ 6'])
             ->add('answer7', null, ['label' => 'ответ 7'])
             ->add('answer8', null, ['label' => 'ответ 8'])
-            ->add('status', 'choice', ['label' => 'Статус','choices' => array_flip(LessonRequest::getStatusesForAdminView())])
+            ->add('status', 'choice', ['label' => 'Статус','choices' => array_flip(DiagnosticsRequest::getStatusesForAdminView())])
         ;
     }
 

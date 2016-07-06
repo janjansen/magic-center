@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints as Assert;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class DiagController extends Controller
 {
@@ -39,6 +40,7 @@ class DiagController extends Controller
     public function createRequestAction(Request $request)
     {
         $data = $this->getDiagRequestData($request->get('d'));
+
 
         if ($data == false) {
             return new RedirectResponse('/diagnostics');

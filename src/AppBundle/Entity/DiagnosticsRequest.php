@@ -13,6 +13,8 @@ class DiagnosticsRequest
 {
     const STATUS_CREATED = 'CREATED';
     const STATUS_PAID = 'PAID';
+    const STATUS_ADVICE_PROVIDED = 'ADVICE_PROVIDED';
+    const STATUS_CANCELLED = 'CANCELLED';
 
     const SERVER_PATH_TO_IMAGE_FOLDER = '/home/bh59203/public_html/rs2/web/images/diagnostics_request/';
     const WEB_PATH_TO_IMAGE_FOLDER = '/images/diagnostics_request/';
@@ -123,6 +125,8 @@ class DiagnosticsRequest
         return [
             self::STATUS_CREATED => 'Создана',
             self::STATUS_PAID => 'Оплачена',
+            self::STATUS_ADVICE_PROVIDED => 'Консультация предоставлена',
+            self::STATUS_CANCELLED => 'Отменена',
         ];
     }
 

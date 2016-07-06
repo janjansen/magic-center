@@ -81,7 +81,11 @@ class LessonController extends Controller
 
         $r = $this->createLessonRequest($data, $lesson, $file);
 
-        return $this->render('lesson/go_to_payment.html.twig', ['r' => $r]);
+        return $this->render('lesson/go_to_payment.html.twig', [
+            'r' => $r,
+            'ya_scid' => $this->container->getParameter('ya_scid'),
+            'ya_shop_id'  => $this->container->getParameter('ya_shop_id'),
+        ]);
     }
 
     protected function createLessonRequest(array $data, Lesson $lesson, UploadedFile $file)

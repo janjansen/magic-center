@@ -20,12 +20,12 @@
                                         Для продолжения необходимо перейти к оплате
                                     </p>
                                     <form action="https://demomoney.yandex.ru/eshop.xml" method="post">
-                                        <input name="shopId" value="1234" type="hidden"/>
-                                        <input name="scid" value="4321" type="hidden"/>
+                                        <input name="shopId" value="{{ ya_shop_id }}" type="hidden"/>
+                                        <input name="scid" value="{{ ya_scid }}" type="hidden"/>
                                         <input name="sum" value="{{ cost.content }}" type="hidden">
-                                        <input name="customerNumber" value="abc000" type="hidden"/>
+                                        <input name="customerNumber" value="D{{ r.id }}" type="hidden"/>
                                         <input name="paymentType" value="AC" type="hidden"/>
-                                        <input name="orderNumber" value="{{ r.id }}" type="hidden"/>
+                                        <input name="orderNumber" value="D{{ r.id }}" type="hidden"/>
                                         <input class="btn-submit" type="submit" value="Перейти к оплате"/>
                                     </form>
                                 </div>

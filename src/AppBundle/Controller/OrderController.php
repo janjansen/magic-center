@@ -133,7 +133,11 @@ class OrderController extends Controller
         $cookie = new Cookie('basket', '');
         $response = new Response();
         $response->headers->setCookie($cookie);
-        $response->setContent($this->container->get('twig')->render(':order:go_to_payment.html.twig', ['order' => $order]));
+        $response->setContent($this->container->get('twig')->render(':order:go_to_payment.html.twig', [
+            'order' => $order,
+            'ya_scid' => $this->container->getParameter('ya_scid'),
+            'ya_shop_id'  => $this->container->getParameter('ya_shop_id'),
+        ]));
         return $response;
     }
 

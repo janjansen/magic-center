@@ -66,6 +66,8 @@ class DiagController extends Controller
             [
                 'r' => $r,
                 'cost' => $this->getDoctrine()->getRepository('AppBundle:Content')->findOneBy(['key' => 'DIAGNOSTICS_COST']),
+                'ya_scid' => $this->container->getParameter('ya_scid'),
+                'ya_shop_id'  => $this->container->getParameter('ya_shop_id'),
             ]
         );
     }

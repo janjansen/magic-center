@@ -76,6 +76,12 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: Заказы, label: Заявки на курсы }
 
+    app.admin.diag_request:
+        class: AppBundle\Admin\DiagnosticsRequestAdmin
+        arguments: [~, AppBundle\Entity\DiagnosticsRequest, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Заказы, label: Заявки на диагностику }
+
     app.twig_extension:
         class: AppBundle\Twig\AppExtension
         arguments: ['@service_container']

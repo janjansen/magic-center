@@ -5,10 +5,32 @@ security:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
+        ROLE_CONTENT_MANAGER:
+            - ROLE_APP_ADMIN_PRODUCT_LIST
+            - ROLE_APP_ADMIN_PRODUCT_VIEW
+            - ROLE_APP_ADMIN_PRODUCT_EDIT
+            - ROLE_APP_ADMIN_PRODUCT_CREATE
+            - ROLE_APP_ADMIN_PRODUCT_DELETE
+            - ROLE_APP_ADMIN_PRODUCT_IMAGE_LIST
+            - ROLE_APP_ADMIN_PRODUCT_IMAGE_VIEW
+            - ROLE_APP_ADMIN_PRODUCT_IMAGE_EDIT
+            - ROLE_APP_ADMIN_PRODUCT_IMAGE_CREATE
+            - ROLE_APP_ADMIN_PRODUCT_IMAGE_DELETE
+            - ROLE_APP_ADMIN_PRODUCT_CATEGORY_LIST
+            - ROLE_APP_ADMIN_PRODUCT_CATEGORY_VIEW
+            - ROLE_APP_ADMIN_PRODUCT_CATEGORY_EDIT
+            - ROLE_APP_ADMIN_PRODUCT_CATEGORY_CREATE
+            - ROLE_APP_ADMIN_PRODUCT_CATEGORY_DELETE
+            - ROLE_SONATA_ADMIN
+            - ROLE_ADMIN
+        ROLE_ADMIN:
+            - ROLE_USER
         ROLE_SUPER_ADMIN:
             - ROLE_ADMIN
             - ROLE_SONATA_ADMIN
+
+    access_decision_manager:
+            strategy: unanimous
 
     providers:
         fos_userbundle:

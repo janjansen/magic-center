@@ -15,12 +15,12 @@
                             <div class="scroll-pane">
                                 <div class="wrap_oferta">
                                     <p>Заказ ID {{ order.id }} на сумму {{ order.getAmount }} успешно сформирован.</p>
-                                    <form action="https://demomoney.yandex.ru/eshop.xml" method="post">
+                                    <form action="https://money.yandex.ru/eshop.xml" method="post">
                                         <input name="shopId" value="{{ ya_shop_id }}" type="hidden"/>
                                         <input name="scid" value="{{ ya_scid }}" type="hidden"/>
                                         <input name="sum" value="{{ order.getAmount }}" type="hidden">
                                         <input name="customerNumber" value="O{{ order.id }}" type="hidden"/>
-                                        <input name="paymentType" value="AC" type="hidden"/>
+                                        <input name="paymentType" value="" type="hidden"/>
                                         <input name="orderNumber" value=">O{{ order.id }}" type="hidden"/>
                                         <input name="custName" value="{{ order.lname }} {{ order.fname }}" type="hidden"/>
                                         <input name="custEmail" value="{{ order.email }}" type="hidden"/>

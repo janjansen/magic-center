@@ -104,7 +104,6 @@ class EmailController extends Controller
 
     protected function sendEmail($to, $subject, $body)
     {
-        $to = 'somkin.roman@gmail.com';
         $message = new \Swift_Message();
         $message->setFrom('robot@nikol-magic-school.ru');
         $message->setTo($to);
